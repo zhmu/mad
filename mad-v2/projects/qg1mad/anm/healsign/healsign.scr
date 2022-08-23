@@ -1,0 +1,11 @@
+;
+; healsign.scr - mad animation manager script to construct the 'sign'
+;                character at the entrance to the healer's house
+;
+; 19990512    rink            created this file
+;
+[files]
+healsign.spr
+
+[anims]
+stopped 1 1 1 1

@@ -1,0 +1,157 @@
+;
+; llyette.scr
+;
+; this is the communications script of llyette.
+;
+var state
+
+init {
+     ; load the nice picture
+     loadscreen "llyette.pic"
+
+     ; load the body parts <g>
+     object mouth = animation "llyette.anm"
+     object eyes = animation "llyette.anm"
+
+     ; move the mouth to the correct place
+     mouth.move 57 60
+     mouth.setanim "talking"
+     mouth.animate
+     mouth.setloop 1
+     mouth.setspeed 1 1 12
+     mouth.show
+
+     ; move the eyes to the correct place
+     eyes.move 68 47
+     eyes.setanim "blink_eyes"
+     eyes.animate
+     eyes.setspeed 1 1 5
+     eyes.hide
+
+     ; create the text dialog
+     dialog.createtextdialog 115 20
+     dialog.loadtext 2
+
+     ; set state to zero indicating we just arrived
+     state=0
+
+     ; spawn the dialog
+     dialog.dodialog 500
+} init
+
+run {
+     ; need to leave?
+     if(state==3) {
+         ; yeah, get outta here
+         leave
+     }
+     ; there's a 1/30 chance the eyes will close each interprinter cyle
+     if(random[30]==5) {
+         eyes.animate
+         eyes.show
+     }
+     ; when the eyes have stopped animating, hide them
+     if(!eyes.animating) eyes.hide
+} run
+
+/*
+ * dialog_done
+ *
+ * This will be called whenever a dialog is completed.
+ *
+ */
+dialog_done {
+     ; states:
+     ; 0 = main menu
+     ; 1 = hero6 submenu
+     ; 2 = flag to tell we are about to leave
+     ; 3 = leave at next interprinter cycle
+
+     if(state==2) {
+         state=3
+         return
+     }
+
+     ; make sure llyette shuts up before we do any dialoges
+     mouth.hide
+
+begin_dialog:
+
+     ; figure out the state
+     if(state==0) {
+         ; yeah. show the 'ask question' dialogue
+         ; syntax: dialog.converse [x-pos] [y-pos] [unsel-color] [sel-color]
+         ;                         [textno]
+         dialog.converse 115 20 0 255 0
+
+         ; figure out what to do
+         ; it is NOT the 'Hero6' submenu?
+         if (dialog.dialogchoice!=0) {
+             ; yeah. show the text
+             dialog.loadtext dialog.dialogchoice+8
+             ; show llyette talking
+             mouth.show
+
+             ; if it's the 'Enough Already' option, set state to 2
+             if (dialog.dialogchoice==3) state=2
+
+             ; spawn the dialog
+             dialog.dodialog 750
+
+             ; get outta here!
+             return
+         }
+
+         ; is it the Hero6 submenu?
+         if(dialog.dialogchoice==0) {
+             ; yeah. go for it!
+             state=1
+
+             ; show the chat about hero6
+             dialog.loadtext 3
+             ; show llyette talking
+             mouth.show
+
+             ; spawn the dialog
+             dialog.dodialog 750
+
+             ; get outta here!
+             return
+         }
+         return
+     }
+     if(state==1) {
+         ; open the hero6 submenu
+         dialog.converse 115 20 0 255 1
+
+         ; is it NOT 'Something else'?
+         if (dialog.dialogchoice!=5) {
+             ; yeah, show the text
+             dialog.loadtext dialog.dialogchoice+4
+             ; show llyette talking
+             mouth.show
+
+             ; spawn the dialog
+             dialog.dodialog 750
+
+             ; get outta here!
+             return
+         }
+         ; is it 'Something else'?
+         if (dialog.dialogchoice==5) {
+             ; yeah, get outta this dialog
+             state=0
+
+             ; and rerun this procedure
+             goto begin_dialog
+         }
+     }
+
+     ; spawn the dialog
+     dialog.dodialog 750
+} dialog_done
+
+done {
+     eyes.unload
+     mouth.unload
+} done

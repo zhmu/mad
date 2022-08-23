@@ -1,0 +1,12 @@
+;
+; towngate.scr - mad animation manager script to construct the 'towngate' object
+;
+; 19990523    rink            created this file
+;
+[files]
+opened.spr
+closed.spr
+
+[anims]
+opened 1 1 1 1
+closed 2 2 2 2

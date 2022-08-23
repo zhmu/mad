@@ -1,0 +1,63 @@
+;
+; forest2.scr
+;
+; script file for the forest north of the centaur fields
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "forest2.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==7) goto from_fields
+     if (old_room==16) goto from_forest_west
+
+     ego.show
+     return
+
+from_fields:
+     ego.show
+     ego.move 142 200
+     ego.moveto 142 142
+     while (ego.moving) refresh
+     return
+
+from_forest_west:
+     ego.show
+     ego.move 0 107
+     ego.moveto 55 107
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_fields
+    if (ego.prioritycode==2) goto go_forest_west
+    return
+
+go_fields:
+    old_room=cur_room
+    cur_room=7
+    leave
+
+go_forest_west:
+    old_room=cur_room
+    cur_room=16
+    leave
+} run
+
+done {
+} done

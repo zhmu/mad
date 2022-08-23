@@ -1,0 +1,135 @@
+Datum  (Jaar/Maand/Dag) Naam lid    Beschrijving
+> Date (Year/Month/Day) Name meber  Description
+----------------------------------------------------------------------------
+19981001                rink        begonnen met MAD log
+
+>                                   started MAD log
+
+19981001                rink        BUG: loadsprite blijft sprites
+                                    laded als ze ge'destroy'ed zijn,
+                                    maar geeft mm blocks niet vrij.
+
+>                                   BUG: loadsprite keeps loading sprites
+                                    when they're destroyed, but it will
+                                    not release the memory blocks.
+
+19981014                rink        opnieuw begonnen met mad project,
+                                    oude source verhuisd naar oldsourc
+
+>                                   restarted the mad project. moved old
+                                    source to oldsourc.
+
+19981018                rink        archive.cpp en mm.cpp af
+
+>                                   archive.cpp and mm.cpp finished
+
+19981030	   	rink	    MAD project wordt nu in DJGPP geschreven.
+				    MM is dus niet meer nodig
+
+>                                   MAD project will now be done in DJGPP.
+                                    MM is not nessecary anymore.
+				    
+19981031		rink	    MAD file manager is nu compleet naar
+                                    DJGPP geconverteerd en hij werkt.
+
+>                                   MAD file manager is now completely DJGPP
+                                    and it works.
+
+19981031                rink        main.cpp, script.cpp en archive.cpp werken
+                                    nu goed onder DJGPP. begonnen met gfx.cpp
+
+>                                   main.cpp, script.cpp and archive.cpp work
+                                    perfectly using DJGPP, started gfx.cpp.
+
+19981112                rink        bezig met script.cpp mooier te maken,
+                                    debug.cpp en andere dingen.
+
+>                                   started making script.cpp neater,
+                                    debug.cpp and other things.
+
+19981225                rink        bugfix: nu kijkt de icon bar of je op een
+                                    goede icon klikt. project.cpp af en wordt
+                                    nu gebruikt.
+
+>                                   bugfix: the icon bar will check whether
+                                    you click a good icon. project.cpp
+                                    finished and in use.
+
+19990227                rink        nieuwe MAD animation manager nu af. Bezig
+                                    met animations in interprinter.
+
+>                                   new MAD animation manager finished. Busy
+                                    working on animations in the interprinter.
+
+19990228                rink        animation manager werkend en af. animatie
+                                    test programma af, met bug, die soms
+                                    optreed als je de laatste animatie in de
+                                    file bekijkt, exit dan. animaties in
+                                    interprinter goed werkend (YIPEE!!!). Bug
+                                    in PCXGRAB.C opgelost, er werdt steeds een
+                                    regel te veel aan sprite data gelezen.
+                                    Alles opnieuw gegrabt. Er voor gezorgt dat
+                                    UINT en SINT niet 4 bytes, maar 2 bytes
+                                    zijn. (iets vergeten...? :-)
+
+>                                   animation manager working and finished.
+                                    animation test utility finished, with
+                                    bug when you try to look at the last
+                                    animation, it will qit. animations in
+                                    interprinter finished (YIPPEE!!!). Solved
+                                    bug in PCXGRAB.C, it read one line too much
+                                    sprite data. Regrabed everything. Made
+                                    sure UINT and SINT are not 4 bytes, but
+                                    2 bytes. (forgot something...? :-)
+
+19990318                rink        interprinter lijkt nu goed werkend. bezig
+                                    met delen van quest for glory 1 als MAD
+                                    spel te maken.
+
+>                                   interprinter seems to work ok. busy
+                                    creating parts of QFG1 as MAD game.
+
+19990406                rink        alles is nu DJGPP. bezig met de MAD
+                                    compiler en linker
+
+>                                   everything is now DJGPP. creating MAD
+                                    compiler and linker
+
+19990516                rink        MAD compiler zowat af. Linker moet nog
+                                    beter maar werkt goed voor kleine projecten.
+                                    Windows versie goed werkend (yipee!).
+                                    Gecompileerde MAD scripten werken nu
+                                    perfect.
+
+>                                   MAD compiler almost finished. Linker
+                                    should be better but works for all small
+                                    projects. Windows version working (yipee!)
+                                    Compiled MAD scripts work now perfect.
+
+19990530                rink        verandering: als je b.v. naar een object
+                                    kijkt en look_object bestaat niet, dan
+                                    wordt de procedure [look] van het main
+                                    script opgeroepen. windows en dos versies
+                                    lijken nu goed te werken. error codes toe-
+                                    gevoegd. nu werken de alt-[iets] debugging
+                                    combinaties ook onder de windows versie.
+                                    (windows keyboard handler werkt nu!)
+
+>                                   change: if you look at an object, and
+                                    look_object doesn't exists, the procedure
+                                    look of the main script will be excecuted.
+                                    windows and dos versions seem to work ok.
+                                    added error codes. alt-[something] key
+                                    combinates now work under windows (windows
+                                    keyboard handler works now!)
+
+19990731                rink        mad debugging in interprinter af! (hoop
+                                    ik). log vertaalt in het engels.
+
+>                                   mad debugging in interprinter finished (I
+                                    hope). log translated in english.
+
+20000326                rink        eraan gedacht dat deze file er ook nog
+                                    was.
+
+>                                   realized this file also exists!

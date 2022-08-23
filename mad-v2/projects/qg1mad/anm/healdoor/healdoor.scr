@@ -1,0 +1,15 @@
+;
+; healdoor.scr - mad animation manager script to construct the 'door'
+;                character at the entrance to the healer's house
+;
+; 19990512    rink            created this file
+;
+[files]
+standing.spr
+open000.spr
+open001.spr
+
+[anims]
+stopped 1 1 1 1
+opening 1 2 3
+closing 3 2 1

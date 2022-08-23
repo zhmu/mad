@@ -1,0 +1,274 @@
+[global]
+out=text.txf
+
+[strings]
+// 0 - System controls text
+\sHero6 Control Panel\s\n\s\nReturn to game\nQuit
+// 1
+Hero6: Rite of Passage Demo Version 1.0\n\n(c) 1999, 2000 The Hero6 Team\n\nThe Hero6 Team is\n\nPresident\nRink Springer - TUOIC\n\nArt\n\nArea Leader\nBrian Yarrow - Aftershock\n\nArea Members\nChris - Bonito\nAndreas Neekburn - Sir Elthil\nDaniel Teti - ^^Gabriel\nJoe McCombs - PHattiE\n\nProgramming\n\nArea Leader\nRink Springer - TUOIC\n\nArea Members\nChris Cavey - ZeroX\nJavi G.G. - TheDeath\n\nPlot\n\nArea Leaders\nBlueNinja\nJoost Brouwer - Paladin Valiant\nPseudonym\n\nArea Members\nBen - Fernin\n\nMusic\n\nArea Leader\nRobert Richards - The Adventurer\n\nArea Members\nDerek von Krogh - Derek\n\nThanks to\nJoe McCombs - PHattiE\nMaria\nBrad Nace - Centaur of Sifnos\nKarl Semich - Te'ja
+// 2 - Magic message
+You don't know any magical spells\n(don't worry, we know the feeling :)
+// 3
+b
+// 4
+c
+// 5
+d
+// 6
+e
+// 7
+f
+// 8
+g
+// 9 - Title: Hero message
+Behold! The Hero6 Hero!
+// 10 - GL: Opening text
+"You're awake! Are you feeling\nbetter?"
+// 11 - GL: Dialog options
+Try to get up\nAsk her for her name\nWhere am I?\nHow did I get here?\nSay Goodbye
+// 12 - GL: Submenu: Ask her for her name
+Ask for more about Greenleaf\nTell about yourself\nSomething else
+// 13 - GL: Subment Tell about yourself
+Ask about Settlements\nSomething else
+// 14 - GL: Settlements
+Ask about Albion\nAsk about Helmsdale\nAsk about Duke\nSomething else
+// 15 - GL: After 'How did I get here?'
+Ask about monster\nSomething else
+// 16 - GL: After Ask about monsters
+Ask About Valley\nSomething else
+// 17 - GL: After 'Ask about valley'
+Ask About Trouble\nSomething else
+// 18 - GL: After 'Ask about Trouble'
+Ask about the Duke\nAsk about Golems\nSomething else
+// 19 - GL: After 'Ask about Golems'
+Ask about Someone\nSomething else
+// 20
+20
+// 21
+21
+// 22
+22
+// 23
+23
+// 24
+24
+// 25
+25
+// 26
+26
+// 27
+27
+// 28
+28
+// 29
+29
+// 30 - GL reply to getting up
+"You should rest some more first;\nyou're not completely healed.\nI'll let you get up in a moment"
+// 31 - GL's name
+"I am Greenleaf"
+// 32 - GL: Where is he?
+"You're in my home. This is a\nbeautiful place, don't you think?"
+// 33 - GL: How he got here
+"You were attacked and wounded\nby that horrible monster.\nLuckily, I saw you being\nattacked and was able to drive\nit off with my spells. You were\nwounded, so I brought you to my\nhome, where it was safer."
+// 34 - GL: Goodbye
+"Be careful out there. Goodbye,\nand good luck!"
+// 35 - Narrator
+You open your eyes to see that\nthe owner of the voice is a\nbeautiful woman. You are lying\nin a forest clearing which is\npermeated with an aura of peace\nand happiness. Realizing that the\nwoman has asked you a question, you\nnod your head in response. She smiles.
+// 36 - GL: Ask for more about Greenleaf
+"You're an inquisitive\nadventurer, aren't you? I am a\nmage. I have taken on the\nresponsibility of guarding this\nforest. It hasn't been easy,\nconsidering that there are now\ntwo settlements in this valley,\nbut I protect the forest to the\nbest of my ability... Who are\nyou?"
+// 37 - GL: Tell about yourself
+"So, you're answering a\nproclamation by Duke Conrad\nthat says Albion needs a\nhero? He must be getting\ndesperate if he needs\noutside help. Things are\nworse than I thought... I\nwish you good luck on your\nquest. Is there anything I\ncan tell you that will help\nyou?"
+// 38 - GL: About about settlements
+"Well, there's Albion and\nHelmsdale. Albion, which\nis named after the valley,\nis the larger of the two;\nit's a town near the\nDuke's castle. Helmsdale\nis a small hamlet nearer\nto the coast."
+// 39 - GL: About Albion
+"I'm sorry, but I don't\ngo to the town very\noften, so I can't give\nyou any more information."
+// 40 - GL: About Helmsdale
+"I'm sorry, but I don't\nusually go to the hamlet,\nso I can't tell you\nanything else about\nHelmsdale."
+// 41 - GL: About Duke
+"Thorn Conrad is the local\nLord. He is supposed to keep\npeace between the inhabitants\nof the\nvalley; Duke Conrad\nis also the commander of the\nguards and is responsible for\nthe valley's defense"
+// 42 - GL: About monster
+"It was a golem, one\nof many types of\nmonsters that plague\nthis valley. They're\nvery dangerous, you\nshould be more careful."
+// 43 - GL: Ask about valley
+"This valley is called\nAlbion. A pretty name for\na peaceful, beautiful\nplace... At least, this\nvalley was peaceful until\na while ago, when the\ntrouble started."
+// 44 - GL: About trouble
+"A few months ago, the monster\npopulation of the valley started\nto increase. Some of the\ncreatures are just natural\ncreatures, predators and the\nlike. Usually the population of\nsuch creatures would be kept at\nsafe levels by Lord Conrad's\nsoldiers but he's been having\ntrouble with a group called the\n"Rogues" and has been unable to\ndeal with the other threats."
+// 45 - GL: More about trouble
+"Other monsters, however,\nare unnatural and evil...\nThe creature that attacked\nyou is such an example. I\ncan feel the evil magic that\nanimates the golems...\n*schrudder*"
+// 46 - GL: About Duke (again! XXX: must do linking, should be able to insert [@41] here)
+"Thorn Conrad is the local\nLord. He is supposed to keep\npeace between the inhabitants\nof the\nvalley; Duke Conrad\nis also the commander of the\nguards and is responsible for\nthe valley's defense"
+// 47 - GL: About golems
+"Golems are magically-\nanimated creaturs\nusually maded out of a\nsingle type of\nsubstance, like wood or\nclay. Someone has been\nmaking them in Albion\nValley; the golems have\nforced many of the\nfarmers to leave. The\nautomatons destroy farms\nand kill anyone who gets\nin their way."
+// 48 - GL: Ask about someone
+"I've heard that an evil\nwizard to the north of here\nis creating the golems,\nbut I can't tell whether\nthe rumor is correct or not.\nI've never met the wizard\nthe tale mentions."
+// 49
+49
+// POOL.S: BIG TREE messages
+// 50 - Look #1
+This tree feeds itself with the\nfertile water and grassland of the\npool.
+// 51 - Look #2
+The tree looks like a reasonable\nplace for climbing practice.
+// 52 - Look #3
+Some squirrels are fighting among\neach other. You guess this must be\na hot living spot.
+// 53 - Hand
+Climbing this tree is an easy way\nto improve your climbing skills......\nin the complete game
+// 54 - Talk #1
+It doesn't respond. Maybe you\nshould try speaking louder.
+// 55 - Talk #2
+Come on, louder!
+// 56 - Talk #3
+Is that all the louder you can\nbe? LOUDER!
+// 57 - Talk #4
+Well, it doesn't answer. What\ndid you expect from a tree?
+// POOL.S:  SMALL TREE messages
+// 58 - Look #1
+This tiny tree grows between\nrocks and stones.
+// 59 - Look #2
+This small tree doesn't\nlook very climbable at first sight..
+// 60 - Look #3
+It doesn't look any more climbable at second sight
+// 61 - Use #1
+This tree doesn't look very\nstrong so you decide knot to\nclimb it.
+// 62 - Use #2
+Turning suicidal? Climbing\nthis tree would be an easy\nway to die.
+// 63 - Talk #1
+You'd really be going out\non a limb by attempting to\nspeak to this tree. It wood\nknot be beneficial to you. You\ndecide to leaf it alone
+// 64 - Talk #2
+You are surprised that the\ntree doesn't answer you. Why\ndoes this happen to you all\nthe time
+// POOL.S: GRASS messages
+// 65 - Look #1
+Beautiful flowers grow in the grass beneath your feet.
+// 66 - Look #2
+The grass is very green up\nhere.
+// 67 - Look #3
+The grass on the other side\nof the screen is greener.
+// 68 - Use #1
+You take some of the grass\nand feel it in your palm.
+// 69 - Use #2
+You know smoking grass is\nforbidden in some countries.\nBesides, getting high would seriously\nimpede your ability to complete this game.
+// 70 - Mouth #1
+Talking to the grass is\nuseless. It doesn't answer\nyou
+// 71 - Mouth #2
+It tastes like...grass1
+// 72 - Mouth #3
+No, I'm not putting my\nmouth there and you\ncan't make me!
+// POOL.S: ROCKS messages
+// 73 - Look #1
+Igneous
+// 74 - Look #2
+Metamporphic.
+// 75 - Look #3
+Sedentary. Or was that\nsedimentary?Well, the\nrock is certainly just\nsitting there. Hmm...\nmaybe you should have\npaid more attention in\nEarth Science class.
+// 76 - Use #1
+He who hath a clean slate...
+// 77 - Use #2
+... really shouldn't throw rocks at it.
+// 78 - Talk
+It's stone dumb
+// POOL.S: STREAM messages
+// 79: Look
+The crystal clear water\ngushes from the rocks,\nweaving a crisp path\ntowards the valley.
+// 80: Use
+The water tastes cool and\nrefreshing.
+// 81: Talk #1
+You can't really talk\nto water.
+// 82: Talk #2
+The water doesn't hear\nyou.
+// 83: Talk #3
+The stream continues\non it's path, oblivious\nto your voice.
+// POOL.S: Sky messages
+// 84: Look #1
+You find yourself in\na beautiful place.\nThe air is cool and you\nfind yourself wondering if\nyou're in heaven.
+// 85: Look #2
+Wow, what a view!
+// 86: Look #3
+You wonder who takes\ncare of this wonderful\nplace
+// 87: Look #4
+Just to remind you,\nthe sun eclipse was\nalready one week ago.
+// 88: Look #5
+White clouds cover\nthe blue sky, creating\na beautiful view.
+// 89: Use #1
+Reach for the sky!
+// 90: Use #2
+You can't reach the\nsky, smart guy.
+// 91: Use #3
+You try to fetch some\nair but it is quickly\nlost in the breeze.
+// 92: Use #4
+There is nothing worth\ntaking in the air so\ndon't bother trying.
+// 93: Use #5
+You're full of hot\nair already.  You\ndon't need any more.
+// 94: Talk #1
+You call out to the\nsky. No one answers.
+// 95: Talk #2
+A bird looks at you\nas you say hello but\nflies away.
+// 96: Talk #3
+You yell hello and\nlisten to your echo.
+// POOL.S: Greenleaf messages
+// 97: Look #1
+Wow, she's really\npretty.
+// 98: Look #2
+You wonder if she's\nthe one who takes\ncare of this place.
+// 99: Look #3
+Quit staring, you dolt!
+// 100: Look #4
+Get your eyes back\nin your head, pervert.
+// 101: Use #1
+Naw, she might misinterpret it.
+// 102: Use #2
+You wave hello to\nGreenleaf. She waves\nback.
+// POOL.S: Mountain messages
+// 103: Look #1
+Wow, this mountain dwarfs\nEverest.
+// 104: Look #2
+You consider making plans\nto climb the mountain.\nYou'd better get more\nclimbing experience first.
+// 105: Look #3
+Wonder what the view\nis like up there?
+// 106: Look #4
+In the distance you\nsee a big mountain.\nIt looks old and\nerupted.
+// 107: Look #5
+Staring at this mountain\nwill not help you to\nfinish the game. But then\nagain this is a demo - you\ncan't finish anyway.
+// 108: Use #1
+Taking this mountain\nwould seriously ruin your\nback.
+// 109: Use #2
+You take the mountain but\nuickly put it back after\nrealizing you don't have\nenough space in your inventory.
+// 110: Use #3
+Hey, stop doing that!\nTaking away this mountain\nwould really ruin the\nbeautiful view.
+// 111: Talk #1
+Any words spoken to\nthat distance are lost\nin the wind.
+// 112: Talk #2
+This mountain just\nisn't much of a\nconversationalist.
+// 113: Talk #3
+Maybe you should try\ntalking to living creatures.\nThey might actually respond.\nThen again, they might not.
+// 114: Talk #4
+It doesn't answer.
+// POOL.S: FLOWERS messages
+// 115: Look #1
+These flowers are very\nbeautiful. They almost\nseem magical.
+// 116: Look #2
+They remind you of\nyour Aunt Edna's flowers.\nExcept these ones aren't\ndead.
+// 117: Look #3
+Oh look, the bees are\nhopping from flower to\nflower. Aren't they cute?
+// 118: Look #4
+Flowers never were your\nkind of business. You'd\nrather pester your little\nbrother.
+// 119: Look #5
+You see some beautiful\nflowers near the pond.
+// 120: Use #1
+You pick a magical\nflower, but it wilts\nthe moment it is free\nfrom the earth.
+// 121: Use #2
+These flowers are\ntoo small to take. \nMaybe you should try\nsome others.
+// 122: Talk #1
+You try to contact some\nflowers but they are busy.
+// 123: Talk #2
+You ask for an audience\nwith the queen bee but\nshe refuses. She's busy\ntaking care of the kingdom.
+// 124: Talk #3
+So you've developed\na taste for roses?
+// 125: Talk #4
+Ouch, watch out for the thorns!
+// POOL.S: STATUE messages
+// 126: Look #1
+The sculpture depicts a\ncrying woman. A trickle\nof water runs from her\neyes and down her cheeks\nto the ground, forming a\nstream which flows into a\nsmall pond at the other\nend of the meadow. There's\nsomething mysteriously magical\nabout this statue. Just\nlooking at it fills you with\na deep sense of sorrow.
+// 127: Look #2
+What a work of art!
+// 128: Look #3
+You wonder who put a\nstatue way up here.\nNow, if only you knew\nwhere "here" is...
+// 129: Look #4
+Now that's interesting.

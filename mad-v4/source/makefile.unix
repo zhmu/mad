@@ -1,0 +1,46 @@
+#
+# Makefile for MAD
+#
+# 19990610	WvE		created
+# 19991118	rink		updated
+# 19991119 	rink		edited it so it will make MAD/X and MAL/VGL.
+# 20000102	rink		now it'll compile DOS as well!
+# 20000319	rink		changed default graphics driver to vesa for dos
+# 20000530      rink            added zlib to the libraries
+# 20000619	rink		killed the UNIX support and moved all that
+#				to separate makefiles, moved dos stuff to
+#				subdir DOS and includes to include
+# 20000708	rink		made sure the UNIX port builds again
+# 20080504	rink		cleaned this stuff up for distribution
+# 20081005	rink		more cleanups...
+
+.SUFFIXES	: .cpp
+
+XHOME		= /usr/X11R6
+DEFAULT         : x
+
+OBJS		= main.o archive.o bar.o gadgets.o gfx.o project.o script.o \
+		  anm.o debugmad.o fontman.o objman.o dlgman.o parser.o \
+		  textman.o game.o controls.o inv.o mplayer.o
+
+CXXFLAGS	= -g -O1 -I$(XHOME)/include -Iinclude
+CXXFLAGS	+= -DDEBUG
+#CXXFLAGS	+= -DHERO6 -DRELEASE
+
+x:		
+		@ $(MAKE) $(OBJS) unix/gfx_x.o unix/ctrl_x.o CXXFLAGS='$(CXXFLAGS) -DUNIX -DX -DDEBUG -DMULTIPLAYER'
+		g++ -o mad $(OBJS) unix/gfx_x.o unix/ctrl_x.o -lX11 -L$(XHOME)/lib -lz
+
+vgl:		
+		@ $(MAKE) $(OBJS) unix/gfx_vgl.o unix/ctrl_vgl.o CXXFLAGS='$(CXXFLAGS) -DUNIX -DVGL -DUNIX_R00T_REQUIRED'
+		g++ -o mad $(OBJS) unix/gfx_vgl.o unix/ctrl_vgl.o -lvgl
+
+ggi:		
+		@ $(MAKE) $(OBJS) unix/gfx_ggi.o unix/ctrl_gii.o CXXFLAGS='$(CXXFLAGS) -DUNIX -DGGI -I/usr/local/include -DMULTIPLAYER -DDEBUG'
+		g++ -o mad $(OBJS) unix/gfx_ggi.o unix/ctrl_gii.o -lggi -lgii -lgg -lz -L/usr/local/lib -lpthread
+		
+.cpp.o :
+		$(COMPILE) $<
+
+clean:
+		rm -f *.o *.core mad unix/*.o

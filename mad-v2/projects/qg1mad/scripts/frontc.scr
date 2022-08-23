@@ -1,0 +1,103 @@
+;
+; frontc.scr
+;
+; script file for the front of the castle
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+     bar.disable
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "frontc.pic"
+
+     ; load the left guard (fredrich)
+     object fredrich = animation "fredrich.anm"
+     fredrich.move 125 75
+     fredrich.sethalt "small"
+     fredrich.face south
+     fredrich.show
+
+     ; and the right guard (pierre)
+     object pierre = animation "pierre.anm"
+     pierre.move 180 75
+     pierre.sethalt "small"
+     pierre.face south
+     pierre.show
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     ego.show
+
+     ; if ego came from stables, move him to the correct spot
+     if (old_room==3) goto from_stables
+     ; if ego came from the doors room, move him to the correct spot
+     if (old_room==4) goto from_main
+
+     ; we entered from the castle gates
+     ego.move ego.x 180
+     ego.moveto ego.x 140
+     while (ego.moving) refresh
+     bar.enable
+     return
+
+from_main:
+     ego.stop
+     ego.move 160 100
+     ego.face south
+     bar.enable
+     return
+
+from_stables:
+     ego.move 320 ego.y
+     ego.moveto 280 ego.y
+     while (ego.moving) refresh
+     ego.face west
+     bar.enable
+} init
+
+run {
+    refresh
+    if (ego.prioritycode==7) goto go_stables
+    if (ego.prioritycode==3) goto go_front
+    if (ego.prioritycode==4) goto go_entry
+    return
+
+go_front:
+    old_room=cur_room
+    cur_room=1
+    leave
+
+go_stables:
+    ego.moveto 320 ego.y
+    while (ego.moving) refresh
+
+    if (ego.prioritycode!=7) return
+
+    old_room=cur_room
+    cur_room=3
+    leave
+
+go_entry:
+    ego.moveto ego.x 320
+    while (ego.moving) refresh
+    old_room=cur_room
+    cur_room=4
+    leave
+} run
+
+done {
+    fredrich.unload
+    pierre.unload
+} done

@@ -1,0 +1,98 @@
+;
+; bruno.scr - mad animation manager script to construct the 'bruno' character
+;
+; 19990529      rink            created this file
+; 19990530      rink            added the dagger animations
+;
+[files]
+east0.spr
+east1.spr
+east2.spr
+east3.spr
+east4.spr
+east5.spr
+south0.spr
+south1.spr
+south2.spr
+south3.spr
+south4.spr
+south5.spr
+north0.spr
+north1.spr
+north2.spr
+north3.spr
+north4.spr
+north5.spr
+west0.spr
+west1.spr
+west2.spr
+west3.spr
+west4.spr
+west5.spr
+hang_e0.spr
+hang_e1.spr
+hang_e2.spr
+hang_e3.spr
+hang_e4.spr
+hang_e5.spr
+hang_e6.spr
+hang_e7.spr
+hang_w0.spr
+hang_w1.spr
+hang_w2.spr
+hang_w3.spr
+hang_w4.spr
+hang_w5.spr
+hang_w6.spr
+hang_w7.spr
+throw_e0.spr
+throw_e1.spr
+throw_e2.spr
+throw_e3.spr
+throw_e4.spr
+throw_e5.spr
+throw_e6.spr
+throw_e7.spr
+throw_e8.spr
+throw_e9.spr
+throw_w0.spr
+throw_w1.spr
+throw_w2.spr
+throw_w3.spr
+throw_w4.spr
+throw_w5.spr
+throw_w6.spr
+throw_w7.spr
+throw_w8.spr
+throw_w9.spr
+dag_1_0.spr
+dag_1_1.spr
+dag_1_2.spr
+dag_1_3.spr
+dag_1_4.spr
+dag_1_5.spr
+dag_2_0.spr
+dag_2_1.spr
+dag_2_2.spr
+dag_2_3.spr
+dag_2_4.spr
+
+[anims]
+walking_east 1 2 3 4 5 6
+walking_south 7 8 9 10 11 12
+walking_north 13 14 15 16 17 18
+walking_west 19 20 21 22 23 24
+hanging_east 25 26 27 28 29 30 31 32
+hanging_west 33 34 35 36 37 38 39 40
+throwing_east 41 42 43 44 45 46 47 48 49 50
+throwing_west 51 52 53 54 55 56 57 58 59 60
+dagger0 61 62 63 64 65 66
+dagger0_east 62 63 64 65 66
+dagger0_north 62 63 64 65 66
+dagger0_south 62 63 64 65 66
+dagger0_west 62 63 64 65 66
+dagger1 67 68 69 70 71
+dagger1_east 67 68 69 70 71
+dagger1_north 67 68 69 70 71
+dagger1_south 67 68 69 70 71
+dagger1_west 67 68 69 70 71

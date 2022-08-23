@@ -1,0 +1,118 @@
+var cur_room
+var old_room
+var night
+var time
+
+; night = 0 if it is day, 1 if it is night
+
+; time = 0 if day is dawning
+; time = 1 if day is mid-morning
+; time = 2 if day is midday
+; time = 2 if day is mid-afternoon
+; time = 3 if day is sunset approaches
+; time = 4 if night is still young
+; time = 5 if middle of night
+; time = 6 if not yet dawn (day += 1)
+
+run {
+     night=0
+     if (time>=4) night=1
+} run
+
+exit {
+     system.promptexit
+} exit
+
+fight {
+} fight
+
+look {
+} look
+
+use {
+     ; generic use error routine
+     dialog.showmessage random[5]
+} use
+
+main {
+     ; hide the bar and set the clock mouse cursor
+     bar.disable
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; initialize the bar
+     bar.addicon "walk" "walk_s.spr" "walk_u.spr" "-" 4
+     bar.addicon "look" "look_s.spr" "look_u.spr" "-" 0
+     bar.addicon "use" "use_s.spr" "use_u.spr" "-" 0
+     bar.addicon "fight" "fight_s.spr" "fight_u.spr" "-" 0
+     bar.addicon "exit" "exit_s.spr" "exit_u.spr" "-" 3
+     bar.enable
+
+     ; load the ego object
+     object ego = animation "ego.anm"
+
+     ; set the correct priority
+     ego.setpriority 1
+
+     ; move the 'ego' object to (100,100)
+     ego.move 100 100
+     ; set the halt animation sequence to 'standing'
+     ego.sethalt "standing"
+     ; and the move animation sequence to 'walking'
+     ego.setmove "walking"
+     ; set the speed
+     ego.setspeed 3 2 0
+     ; let character look east
+     ego.face east
+
+     ego.setmoveobj
+
+     ; create the text object
+     object copyright = text "<system>"
+
+     copyright.move 0 0
+     copyright.loadtext 6
+     copyright.setcolor 14
+     copyright.show
+
+     night=0
+     time=0
+     old_room=8
+     cur_room=9
+
+looper:
+     controls.disable
+     system.fadeout
+     if (cur_room==1) script.load "castle.lm"
+     if (cur_room==2) script.load "frontc.lm"
+     if (cur_room==3) script.load "stables.lm"
+     if (cur_room==4) script.load "centry.lm"
+     if (cur_room==5) script.load "b_healer.lm"
+     if (cur_room==6) script.load "healer.lm"
+     if (cur_room==7) script.load "fields.lm"
+     if (cur_room==8) script.load "btown.lm"
+     if (cur_room==9) script.load "town.lm"
+     if (cur_room==10) script.load "road1.lm"
+     if (cur_room==11) script.load "forest1.lm"
+     if (cur_room==12) script.load "cemetary.lm"
+     if (cur_room==13) script.load "road2.lm"
+     if (cur_room==14) script.load "road3.lm"
+     if (cur_room==15) script.load "forest2.lm"
+     if (cur_room==16) script.load "forest3.lm"
+     if (cur_room==17) script.load "forest4.lm"
+     if (cur_room==18) script.load "forest5.lm"
+     if (cur_room==19) script.load "forest6.lm"
+     if (cur_room==20) script.load "forest7.lm"
+     if (cur_room==21) script.load "snowy.lm"
+     if (cur_room==22) script.load "forest8.lm"
+     if (cur_room==23) script.load "archery.lm"
+     if (cur_room==24) script.load "forest9.lm"
+     if (cur_room==25) script.load "forest10.lm"
+     if (cur_room==26) script.load "forest11.lm"
+     system.fadein
+     controls.enable
+
+     script.go
+     script.dispose
+     goto looper
+} main

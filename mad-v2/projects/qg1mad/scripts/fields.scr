@@ -1,0 +1,78 @@
+;
+; fields.scr
+;
+; script file for the centaur's field
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "fields.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==5) goto from_heal
+     if (old_room==11) goto from_forest_west
+     if (old_room==15) goto from_forest_north
+
+
+     ego.show
+     return
+
+from_forest_west:
+     ego.show
+     ego.move 0 120
+     ego.moveto 10 120
+     while (ego.moving) refresh
+     return
+
+from_heal:
+     ego.show
+     ego.move 320 125
+     ego.moveto 290 125
+     while (ego.moving) refresh
+     return
+
+from_forest_north:
+     ego.show
+     ego.move 130 64
+     ego.moveto 130 102
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_forest_west
+    if (ego.prioritycode==2) goto go_forest_north
+    if (ego.prioritycode==4) goto go_house
+    return
+
+go_house:
+    old_room=cur_room
+    cur_room=5
+    leave
+
+go_forest_west:
+    old_room=cur_room
+    cur_room=11
+    leave
+
+go_forest_north:
+    old_room=cur_room
+    cur_room=15
+    leave
+} run
+
+done {
+} done

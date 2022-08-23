@@ -1,0 +1,21 @@
+;
+; sheriff.scr - mad animation manager script to construct the 'sheriff' character
+;
+; 19990523       rink            created this file
+;
+[files]
+stopped.spr
+smoke00.spr
+smoke01.spr
+smoke02.spr
+smoke03.spr
+smoke04.spr
+smok000.spr
+smok001.spr
+smok002.spr
+smok003.spr
+
+[anims]
+stopped 1 1 1 1
+smoking 2 3 4 5 6
+smoke_trail 7 8 9 10

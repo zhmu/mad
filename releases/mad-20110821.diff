@@ -1,0 +1,53 @@
+diff -rubB mad.orig/mad-v4/utils/source/fntman3/font.cpp mad/mad-v4/utils/source/fntman3/font.cpp
+--- mad.orig/mad-v4/utils/source/fntman3/font.cpp	2008-10-05 18:53:03.000000000 +0200
++++ mad/mad-v4/utils/source/fntman3/font.cpp	2011-08-21 11:59:03.320681111 +0200
+@@ -306,9 +306,6 @@
+ 	}
+     #endif
+ 
+-    /* close the file */
+-    fclose(f);
+-
+     /* it all went ok. return FONT_ERROR_OK */
+     return FONT_ERROR_OK;
+ }
+diff -rubB mad.orig/mad-v4/utils/source/mc4/compile.cpp mad/mad-v4/utils/source/mc4/compile.cpp
+--- mad.orig/mad-v4/utils/source/mc4/compile.cpp	2008-10-05 18:53:03.000000000 +0200
++++ mad/mad-v4/utils/source/mc4/compile.cpp	2011-08-21 11:56:57.950681126 +0200
+@@ -296,9 +296,9 @@
+     }
+ 
+     /* allocate memory for the line offset buffer */
+-    if((cmp_linetab=(_ULONG*)malloc(cmp_noflines*sizeof(_ULONG)))==NULL) {
++    if((cmp_linetab=(_ULONG*)malloc((1+cmp_noflines)*sizeof(_ULONG)))==NULL) {
+         /* this failed. die */
+-        fprintf(stderr,"cmp_readfile(): could not allocate %lu bytes for line offset buffer of file '%s'\n",cmp_noflines*sizeof(_ULONG),fname);
++        fprintf(stderr,"cmp_readfile(): could not allocate %lu bytes for line offset buffer of file '%s'\n",(1+cmp_noflines)*sizeof(_ULONG),fname);
+         exit(1);
+     }
+ 
+diff -rubB mad.orig/mad-v4/utils/source/mc4/gadgets.cpp mad/mad-v4/utils/source/mc4/gadgets.cpp
+--- mad.orig/mad-v4/utils/source/mc4/gadgets.cpp	2008-10-05 18:53:03.000000000 +0200
++++ mad/mad-v4/utils/source/mc4/gadgets.cpp	2011-08-21 11:54:05.600681146 +0200
+@@ -83,7 +83,7 @@
+ 
+     while(dest[0]==' ') {
+         /* there's a space in the beginning! nuke it */
+-        strcpy(dest,(dest+1));
++        memmove(dest,dest+1,strlen(dest));
+     }
+ }
+ 
+diff -rubB mad.orig/mad-v4/utils/source/mfile2/archive.cpp mad/mad-v4/utils/source/mfile2/archive.cpp
+--- mad.orig/mad-v4/utils/source/mfile2/archive.cpp	2008-10-05 18:53:03.000000000 +0200
++++ mad/mad-v4/utils/source/mfile2/archive.cpp	2011-08-21 12:00:45.600681099 +0200
+@@ -145,9 +145,6 @@
+         return ARCHIVE_READERR;
+     }
+ 
+-    /* close the file */
+-    fclose(f);
+-
+     /* allocate memory for the compression buffer */
+     destlen=(fsize*2);
+     if((tmp=(char*)malloc(destlen))==NULL) {

@@ -1,0 +1,39 @@
+     MAD animation file format 1.1
+    Done at 6 February 1999 by Rink
+ Last updated at 8 December 1999 by Rink
+------------------------------------------
+
+At the beginning of the file, a 64-byte header:
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            4 ³ ID code 0x214d4e41 (ANM!)                          ³
+³      4 ³            2 ³ File version (100h = 1.0, 312h = 3.12, etc.)       ³
+³      6 ³            1 ³ Number of sprites in archive                       ³
+³      7 ³            1 ³ Number of animations in archive                    ³
+³      8 ³            1 ³ Number of bytes per pixel (1 to 4)                 ³
+³      9 ³           55 ³ Reserved                                           ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Followed by [Number of sprites in archive] times
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            2 ³ Width of sprite                                    ³
+³      2 ³            2 ³ Height of sprite                                   ³
+³      4 ³        H * W ³ Sprite data                                        ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+And this is followed by [Number of animations in archive] times
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³           16 ³ Animation name                                     ³
+³     16 ³            2 ³ Number of frames                                   ³
+³     18 ³            2 ³ Flags                                              ³
+³     20 ³           12 ³ Reserved                                           ³
+³     64 ³     [Frames] ³ Sprite numbers                                     ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Note: This format is perfectly compitable with 1.0. Whenever
+[Number of bytes per pixel] is zero, it should be treated as if it was 8.

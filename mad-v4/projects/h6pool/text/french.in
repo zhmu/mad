@@ -1,0 +1,102 @@
+[global]
+out=text.txf
+
+[strings]
+// 0 - System controls text 
+\sHero6 Pupitre de commande\s\n\s\nRetourner ou jeu\nquitté
+// 1
+Hero6: Rite of Passage Demo Version 1.0\n\n(c) 1999, 2000 The Hero6 Team\n\nThe Hero6 Team is\n\nPrésident\nRink Springer - TUOIC\n\nd'Art\n\nChef du zone\nJoseph Yarrow - Aftershock\n\nMembres de zone\nChris - Bonito\nAndreas Neekburn - Sir Elthil\nDaniel Teti - ^^Gabriel\nJoe McCombs - PHattiE\n\nProgrammation\n\nChef du zone\nRink Springer - TUOIC\n\nMembres de zone\nChris Cavey - ZeroX\nJavi G.G. - TheDeath\n\nTraçage\n\nChef du zone\nBlueNinja\nJoost Brouwer - Paladin Valiant\nPseudonym\n\nMembres de zone\nBen - Fernin\n\nMusique\n\nChef de zone\nRobert Richards - The Adventurer\n\nMembres de zone\nDerek von Krogh - Derek\n\nMerci à\nJoe McCombs - PHattiE\nMaria\nBrad Nace - Centaur of Sifnos\nKarl Semich - Te'ja
+// 2 - Magic message 
+Tu ne sais pas les enchantment magique\n(ne vous inquiétez pas, nous savons le sentiment)
+// 3 
+b 
+// 4 
+c 
+// 5 
+d 
+// 6 
+e 
+// 7 
+f 
+// 8 
+g 
+// 9 - Title: Hero message 
+Behold! Le Héros Hero6!
+// 10 - GL: Opening text 
+"Vous êtes éveillé! Est-ce que vous vous sentez\nmieux?"
+// 11 - GL: Dialog options 
+Essayez de vous lever\nDemandez-lui son nom\nOù suis-je?\nComment est-ce que je me suis rendu ici?\nDites aurevoir
+// 12 - GL: Submenu: Ask her for her name
+Demandez plus au sujet de Greenleaf\nParlez de vous-même\nAutre chose
+// 13 - GL: Subment Tell about yourself
+Enquérez-vous des Colonies\nAutre chose
+// 14 - GL: Settlements
+Enquérez-vous d'Albion\nEnquérez-vous d'Helmsdale\nEnquérez-vous du Duc\nAutre chose
+// 15 - GL: After 'How did I get here?'
+Enquérez-vous des monstres\nAutre chose
+// 16 - GL: After Ask about monsters
+Enquérez-vous de la vallée\nAutre chose
+// 17 - GL: After 'Ask about valley'
+Enquérez-vous de l'ennui\nAutre chose
+// 18 - GL: After 'Ask about Trouble'
+Enquérez-vous du Duc\nEnquérez-vous de Golems\nAutre chose
+// 19 - GL: After 'Ask about Golems'
+Enquérez-vous de Quelqu'un\nAutre chose
+// 20
+20
+// 21
+21
+// 22
+22
+// 23
+23
+// 24
+24
+// 25
+25
+// 26
+26 
+// 27 
+27 
+// 28 
+28 
+// 29 
+29 
+// 30 - GL reply to getting up 
+"Vous devriez vous reposer d'avantage;\nvous n'êtes pas complètement guéris.\nJe vous laisserai vous lever dans un moment"
+// 31 - GL's name 
+"Je suis Greenleaf"
+// 32 - GL: Where is he? 
+"Vous êtes dans ma maison. C'est une belle\nemplacement, n'est-ce pas?"
+// 33 - GL: How he got here 
+"Vous avez été attaqués et blessés\npar l'horrible monstre.\nHeureusement, j'ai vu \nl'attaque et je l'ai repulsé\navec mes charmes. Vous étiez\nblessé, alors je vous ai apporté\nchez-moi, ou vous étiez en sécurité."
+// 34 - GL: Goodbye 
+"Soyez prudant là. Au\nrevoir et bonne chance!"
+// 35 - Narrator 
+"Vous ouvrez vos yeux pour voir la\nbelle dame qui appartient à\n cettte voix. Vous êtes couché\ndans un clairière qui est\nimprégné avec une aura de paix et \nde joie. Réalisant que la \nla femme vous a posé une question, vous\ninclinez la tête comme réponse. Elle sourit.
+// 36 - GL: Ask for more about Greenleaf 
+"Vous ètes inquisiteur \ncomme aventurier, n'est-ce \npas? Je suis magicienne. J'ai \npris la responsablilité de protéger \nla forêt. Ce n'était sûrement \npas facile, quand on considère \nqu'il y a maintenant deux colonies \ndans cette valée. Je \nprotège quand-même cette \nvalée le mieux que je \npeux. Qui êtes-vous?"
+// 37 - GL: Tell about yourself 
+"Alors, vous répondez \nun proclamation du Duc \nConrad disant qu'Albion a \nbesoin d'un héro? Il est \nsans doute très désespéré \ns'il a besoin d'aide des \nautres. C'est pire que je \npensais... je te souhaite \nbonne chance dans ta quête. \nY a-t-il quelque chose que \nje puisse vous dire qui \nvous aidera?
+// 38 - GL: About about settlements 
+"Bien, il y a Albion \net Helmsdale. Albion, \nqui est nommé pour la vallée \net est la plus grande des deux; \nc'est un ville près du \nchâteau du Duc. Helmsdale \nest un petit hameau \nplus près de la côte.
+// 39 - GL: About Albion 
+"Je m'excuse, mais \nje ne vais pas souvent à \nla ville, alors je \nne peux pas vous aider."
+// 40 - GL: About Helmsdale 
+"Désolée, mais je \nne vais pas souvent au \nhamleau, alors je ne \npeux pas t'en dire d'avantage \nà propos de Helmsdale."
+// 41 - GL: About Duke 
+"Le seigneur local \nest Thorn Conrad. \nSon rôle est de garder \nla paix entre les habitants \nde la valée; il est aussi \nle chef des soldats résponsbles \npour la défense de la valée."
+// 42 - GL: About monster 
+"C'était un golem, \nun de beaucoup de \ndifférents types de monstres \nqui sont le tourment de la \nvallée. Ils sont très \ndangereux... tu devrais \nêtre plus prudent."
+// 43 - GL: Ask about valley 
+"Cette vallée est \nnommé Albion. Une belle nom \npour une endroit belle... \nPaisible, au moins jusque \nrécemment, quand la trouble \na commencée."
+// 44 - GL: About trouble 
+"Quelques mois \npassé, la population \nde monstres sans \ncette vallée a commencé \nde croître. Quelques-unes \nsont juste des créatures \nnaturelles, des prédateurs, \npar exemple. Généralement, \nla population de ces \ncréatures est abaissé par \nles soldats du Duc \nConrad, mais dans la vallée, \nil y a une groupe de \nfripons qui gardent les \nsoldats du Duc occupés.
+// 45 - GL: More about trouble 
+"D'autres monstres, \ncependant, sont \ndénaturés et \nmalins.. La \ncréature qui t'a \nattaqué est une \nexemple. Je sent \nla magique \nmalfaisant qui \nanime les golems."
+// 46 - GL: About Duke (again! XXX: must do linking, should be able to insert [@41] here) 
+"Le seigneur local \nest Thorn Conrad. \nSon rôle est de \ngarder la paix \nentre les habitants \nde la valée; \nil est aussi le \nchef des soldats \nrésponsbles pour \nla défense de \nla valée."
+// 47 - GL: About golems 
+"Un golem, c'est \nun créature magique \nfait le plupart \ndu temps par \nun seul substance, \ncomme le bois, \nou la glaise. \nQuelqu'un est en \ntrain de les \nfaire dans la \nvalée d'Albion, \nles golems ont \ncausé beaucoup \ndes fermiers de \npartir. Les \nmonstres détruisent \ndes fermes et \ntuent tous le \nmonde qui est \ndans leur chemin."
+// 48 - GL: Ask about someone 
+"J'ai entendue \nrécemment qu'un \nsorcier au nord \nest en train \nde créer les \nGolems, mais \nje ne sais pas \nsi cette rumeur \nest vraie ou \nnon. Je n'ai \njamais rencontré \nle sorcier que \nl'histoire mentionne."

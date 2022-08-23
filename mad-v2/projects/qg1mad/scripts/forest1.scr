@@ -1,0 +1,77 @@
+;
+; forest1.scr
+;
+; script file for the forest left of the centaur fields
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "forest1.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==7) goto from_fields
+     if (old_room==12) goto from_cemetary
+     if (old_room==16) goto from_forest_north
+
+     ego.show
+     return
+
+from_fields:
+     ego.show
+     ego.move 320 98
+     ego.moveto 245 98
+     while (ego.moving) refresh
+     return
+
+from_cemetary:
+     ego.show
+     ego.move 154 200
+     ego.moveto 154 146
+     while (ego.moving) refresh
+     return
+
+from_forest_north:
+     ego.show
+     ego.move 127 39
+     ego.moveto 127 72
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_forest_north
+    if (ego.prioritycode==2) goto go_fields
+    if (ego.prioritycode==3) goto go_cemetary
+    return
+
+go_fields:
+    old_room=cur_room
+    cur_room=7
+    leave
+
+go_cemetary:
+    old_room=cur_room
+    cur_room=12
+    leave
+
+go_forest_north:
+    old_room=cur_room
+    cur_room=16
+    leave
+} run
+
+done {
+} done

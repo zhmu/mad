@@ -1,0 +1,102 @@
+[global]
+out=text.txf
+
+[strings]
+// 0 - System controls text 
+\sHero6 Control Panel\s\n\s\nZurück zum Spiel\nEnde
+// 1
+Hero6: Rite of Passage Demo Version 1.0\n\n(c) 1999, 2000 Tas Hero6 Team\n\nDas Hero6 Team besteht aus\n\nPräsident\nRink Springer - TUOIC\n\nGraphik\n\nLeiter\nJoseph Yarrow - Aftershock\n\nMitglieder\nChris - Bonito\nAndreas Neekburn - Sir Elthil\nDaniel Teti - ^^Gabriel\nJoe McCombs - PHattiE\n\nProgrammierung\n\nLeiter\nRink Springer - TUOIC\n\nMitglieder\nChris Cavey - ZeroX\nJavi G.G. - TheDeath\n\nStory-Design\n\nLeiter\nBlueNinja\nJoost Brouwer - Paladin Valiant\nPseudonym\n\nMitglieder\nBen - Fernin\n\nMusik\n\nLeiter\nRobert Richards - The Adventurer\n\nMitglieder\nDerek von Krogh - Derek\n\nThanks to\nJoe McCombs - PHattiE\nMaria\nBrad Nace - Centaur of Sifnos\nKarl Semich - Te'ja
+// 2 - Magic message
+Du kennst keine Zaubersprüche. Wir kennen das Gefühl
+// 3 
+b 
+// 4 
+c 
+// 5 
+d 
+// 6 
+e 
+// 7 
+f 
+// 8 
+g 
+// 9 - Title: Hero Message
+Taddaaa! Der Hero6 Held!
+// 10 - GL: Opening text
+"Du bist wach! Geht es dir\nschon besser?"
+// 11 - GL: Dialog options
+Versuche aufzustehen\nNach ihrem Namen fragen\nWo bin ich?\nWie bin ich hierhergekommen?\nVerabschiede dich
+// 12 - GL: Submenu: Ask her for her name
+Nach mehr über Greenleaf fragen\nÜber dich selbst erzählen\nEtwas anderes
+// 13 - GL: Subment Tell about yourself
+Nach Siedlungen fragen\nEtwas anderes
+// 14 - GL: Settlements
+Nach Albion fragen\nNach Helmsdale fragen\nNach dem Herzog fragen\nEtwas anderes
+// 15 - GL: After 'How did I get here?'
+Nach dem Monster fragen\nEtwas anderes
+// 16 - GL: After Ask about monsters
+Über das Tal fragen\nEtwas anderes
+// 17 - GL: After 'Ask about valley'
+Über Schwierigkeiten fragen\nEtwas anderes
+// 18 - GL: After 'Ask about Trouble'
+Nach dem Herzog fragen\nÜber Golems fragen\nEtwas anderes
+// 19 - GL: After 'Ask about Golems' 
+Über "Irgendemanden" fragen\nEtwas anderes
+// 20 
+20 
+// 21 
+21 
+// 22 
+22 
+// 23 
+23 
+// 24 
+24 
+// 25 
+25 
+// 26 
+26 
+// 27 
+27 
+// 28 
+28 
+// 29 
+29 
+// 30 - GL reply to getting up
+"Du mußt dich noch etwas mehr\nausruhen, du bist noch nicht\nganz gesund. Ich lasse dich\ngleich aufstehen"
+// 31 - GL's name 
+"Ich bin Greenleaf"
+// 32 - GL: Where is he? 
+"Du bist bei meiner Heimat. Ein schöner\nOrt, finset du nicht?"
+// 33 - GL: How he got here 
+"Du wurdest von diesem furchtbaren\nMonster angegriffen.\nZum Glück habe ich den Angriff\ngesehen und konnte es mit\nZaubersprüchen verjagen. Du wurdest\nverwundet, darum habe ich dich\nhierher gebracht, wo es sicherer ist."
+// 34 - GL: Goodbye 
+"Paß auf dich auf!\nAuf Wiedersehen und viel Glück!"
+// 35 - Narrator 
+Du öffnest deine Augen um zu sehen,\ndass die Besitzerin dieser Stimme\neine wunderschöne Frau ist.\nDu liegst in einer Waldlichtung\nerfüllt von einer Aura des\nFriedens und des Glücks. Als du\nherausfindest, daß sie dich etwas\ngefragt hat, nickst du zur Antwort.\nSie lächelt.
+// 36 - GL: Ask for more about Greenleaf 
+"Du bist ein neugieriger\nAbenteurer, nicht? Ich bin eine Zauberin und habe die\nAufgabe übernommen, diesen Wald\nzu bewachen. Es war nicht leicht,\nwenn man bedenkt,dass es jetzt zwei\nSiedlungen in diesem Tal gibt,\naber ich beschütze diesen Wald\nso gut ich kann...Wer bist du?"
+// 37 - GL: Tell about yourself 
+"Also, du antwortest auf\nein Schreiben des Herzogs\nKonrad, welches besagt\dass Albion Hilfe benötigt? Er muß wohl\nziemlich verzweifelt sein.\nEs steht wohl schlechter, als\ich dachte. Ich wünsche dir viel\nGlück bei deinem Abenteuer. Kann ich\ndir irgendetwas hilfreiches\nsagen"
+// 38 - GL: About about settlements 
+"Nun, da gibt es Albion und\nHelmsdale. Albion, welches\nnach dem Tal benannt ist,\nist das Größere der beiden;\nes ist eine Stadt in\nder Nähe des Schloßes.\nHelmsdale ein kleines\nDorf in der Nähe der Küste."
+// 39 - GL: About Albion 
+"Tut mir leid, aber ich\ngehen nicht oft in\ndie Stadt, also kann ich\ndir nicht mehr sagen."
+// 40 - GL: About Helmsdale 
+"Tut mir leid, ich gehe\nnormalerweise nicht in das\nDorf, also kann\nich dir sonst nichts\nüber Helmsdale sagen."
+// 41 - GL: About Duke 
+"Thorn Conrad ist unser\nLord. Er soll den Frieden unter\nden Einwohnern des Tales\n aufrechterhalten; Herzog Conrad\nist auch der Anführer der\nWachen und ist für die Verteidigung\ndes Tales verantwortlich."
+// 42 - GL: About monster 
+"Es war ein Golem, eine der\nvielen Arten von\nMonstern, die dieses\nTal heimsuchen. Sie\nsind sehr gefährlich\ndu solltest besser aufpassen."
+// 43 - GL: Ask about valley 
+"Dieses Tal wird Albion\ngenannt. Ein guter Name für\neinen friedlichen, schönen\nOrt... Zumindest, war\ndieses Tal friedlich bis vor\nkurzer Zeit, als die\nSchwierigkeiten begannen."
+// 44 - GL: About trouble 
+"Vor ein paar Monaten began die\nZahl der Monster in diesem Tal\nzu steigen. Einige der\nKreaturen sind einfach natürliche\nWesen, Raubtiere und ähnliches.\nNormalerweise würde die Zahl solcher\nTiere von Lord Conrads Solaten in\n sicheren Grenzen gehalten\nwerden,aber er hat Schwierigkeiten\nmit einer Gruppe, die sich die\n"Jäger" nennen und konnte sich nicht\num andere Bedrohungen kümmern."
+// 45 - GL: More about trouble 
+"Andere Monster sind allerdings\nunnatürlich und böse...\nDas Wesen, das dich angegriffen\nhat ist ein Beispiel dafür\nIch kann die dunkle Magie, die\die Golems erweckt spüren..\n*schauder*"
+// 46 - GL: About Duke (again! XXX: must do linking, should be able to insert [@41] here) 
+"Thorn Conrad ist unser\nLord. Er soll den Frieden unter\nden Einwohnern des Tales\n aufrechterhalten; Herzog Conrad\nist auch der Anführer der\nWachen und ist für die Verteidigung\ndes Tales verantwortlich."
+// 47 - GL: About golems 
+"Golems sind Kreaturem\n die auf magische Weise\nbewegt werden und aus\neiner einzigen Substanz\nbestehen, wie Hold\n oder Ton. Irgendjemand hat\nsie in Albion erschaffen\n, die Golems haben viele\nFarmer gezwungen\nwegzuziehene. Diese\nWillenlosen zerstören Farmen\nund töten alles was sich\nihnen in den Weg stellt."
+// 48 - GL: Ask about someone 
+"Ich habe gehört, daß ein\nböser Magier nördlich von hier\ndie Golems erschafft,\naber ich weiß nicht, ob\ndas Gerücht stimmt oder nicht.\nIch habe diesen Magier\nnie getroffen."

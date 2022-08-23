@@ -1,0 +1,27 @@
+    MAD archive format 2.0
+ Done at 23 October 1998 by RiNK
+---------------------------------
+
+At the beginning of the file one 32 byte header
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            4 ³ ID code 0x2144414d (MAD!)                          ³
+³      4 ³            2 ³ Version number (100 = 1.0, 201 = 2.01, etc.)       ³
+³      6 ³            2 ³ Number of files in MAD archive                     ³
+³      8 ³            4 ³ Position of file entry data                        ³
+³     12 ³           20 ³ Unused                                             ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Following this comes the raw file data.
+
+At the end of the file comes [Number of files in MAD archive] times a 32 byte
+file entry field
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³     0  ³           14 ³ File name                                          ³
+³    14  ³            4 ³ Offset in MAD archive                              ³
+³    18  ³            4 ³ Size of this file                                  ³
+³    22  ³           10 ³ Unused                                             ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ

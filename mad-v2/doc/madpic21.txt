@@ -1,0 +1,26 @@
+    MAD picture file format 2.1
+ Done at 24 November 1999 by Rink
+-----------------------------------
+
+At the beginning of the file one 32 byte header
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            4 ³ ID code 0x21434950 (PIC!)                          ³
+³      4 ³            2 ³ Version number (100 = 1.0, 201 = 2.01, etc.)       ³
+³      6 ³            2 ³ Picture height                                     ³
+³      8 ³            2 ³ Picture width                                      ³
+³     10 ³            4 ³ Offset of background screen                        ³
+³     14 ³            4 ³ Offset of priority screen                          ³
+³     18 ³            4 ³ Offset of mask screen                              ³
+³     22 ³            4 ³ Number of bytes per pixel (1 to 4)                 ³
+³     26 ³            6 ³ Unused                                             ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+If any of the OFFSET fields is 0FFFFFFFFh, it means the screen is not within
+the file and that it should be blanked out.
+
+After this comes the picture data
+
+Note: This format is perfectly compitable with 2.0. Whenever
+[Number of bytes per pixel] is zero, it should be treated as if it was 1.

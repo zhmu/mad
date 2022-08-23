@@ -1,0 +1,28 @@
+  MAD saved game file format 1.0
+  Done at 23 August 1999 by Rink
+----------------------------------
+
+At the beginning of the file, a 1024-byte header:
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            4 ³ ID code 0x21475653 (SVG!)                          ³
+³      4 ³            2 ³ Saved game version (100 = 1.0, 312 = 3.12 etc.)    ³
+³      6 ³            8 ³ Project ID string                                  ³
+³     14 ³           64 ³ Saved game title, NULL terminated                  ³
+³     78 ³            4 ³ Checksum of saved game                             ³
+³     82 ³            4 ³ Number of objects stored                           ³
+³     86 ³           16 ³ Name of current script file, NULL terminated       ³
+³        ³              ³ (secondary script)                                 ³
+³    102 ³            4 ³ Current EIP of root script                         ³
+³    106 ³            4 ³ Current EIP of secondary script                    ³
+³    110 ³           16 ³ Current background picture filename, NULL term.    ³
+³    126 ³          898 ³ Reserved                                           ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+This is followed by the objects. Objects are stored in the way the object
+manager stores them internally. All objects (including internal objects) are
+written.
+
+Checksum: This is the value 0x52ad4e4b (R­NK) XORed by all data in the saved
+game. The result is NOTed.

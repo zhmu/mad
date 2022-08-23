@@ -1,0 +1,19 @@
+;
+; fredrich.scr - mad animation manager script to construct the 'fredrich'
+;                character
+;
+; 19990510       rink            created this file
+;
+[files]
+standing.spr
+talk000.spr
+talk001.spr
+talk002.spr
+talk003.spr
+talk004.spr
+small.spr
+
+[anims]
+standing 1 1 1 1
+talking 2 3 4 5 6
+small 7 7 7 7

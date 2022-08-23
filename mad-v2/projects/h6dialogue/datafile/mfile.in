@@ -1,0 +1,15 @@
+a project.prj
+a llyette.pic
+a main.pal
+a ../scripts/startup.lm
+a ../scripts/llyette.lm
+a ../gfx/sysfnt/sysfnt.fnt
+a ../anm/llyette.anm
+a backdrop.spr
+a border0.spr
+a border1.spr
+a border2.spr
+a border3.spr
+a mouse.spr
+a text.txf
+q

@@ -1,0 +1,91 @@
+;
+; forest4.scr
+;
+; script file for the forest south of the town entrance
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "forest1.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==8) goto from_gates
+     if (old_room==18) goto from_forest_east
+     if (old_room==19) goto from_forest_south
+     if (old_room==23) goto from_archery
+
+     ego.show
+     return
+
+from_gates:
+     ego.show
+     ego.move 125 40
+     ego.moveto 125 75
+     while (ego.moving) refresh
+     return
+
+from_forest_east:
+     ego.show
+     ego.move 320 101
+     ego.moveto 243 101
+     while (ego.moving) refresh
+     return
+
+from_forest_south:
+     ego.show
+     ego.move 153 200
+     ego.moveto 153 153
+     while (ego.moving) refresh
+     return
+
+from_archery:
+     ego.show
+     ego.move 0 103
+     ego.moveto 34 103
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==4) goto go_archery
+    if (ego.prioritycode==1) goto go_town_gates
+    if (ego.prioritycode==3) goto go_forest_south
+    if (ego.prioritycode==2) goto go_forest_east
+    return
+
+go_town_gates:
+    old_room=cur_room
+    cur_room=8
+    leave
+
+go_forest_east:
+    old_room=cur_room
+    cur_room=18
+    leave
+
+go_forest_south:
+    old_room=cur_room
+    cur_room=19
+    leave
+
+go_archery:
+    old_room=cur_room
+    cur_room=23
+    leave
+} run
+
+done {
+} done

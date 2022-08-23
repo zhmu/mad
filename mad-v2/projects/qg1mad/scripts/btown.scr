@@ -1,0 +1,189 @@
+;
+; btown.scr
+;
+; script file for the screen before the town
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+extern var night
+
+dagger_bruno {
+     ; only let bruno throw if ego is in reach
+     if (ego.x<=55) return
+
+     ; ego will now look at bruno
+     ego.stop
+     ego.face west
+
+     ; create the text object
+     object rip = text "<system>"
+
+     rip.move 100 100
+     rip.loadtext 7
+     rip.setcolor 255
+     rip.show
+
+     ; change mouse cursor to a clock and freeze controls
+     mouse.loadsprite "clock.spr"
+     bar.disable
+     refresh
+
+     ; put daggers at the right place
+     dagger1.move 71 87
+     dagger2.move 63 76
+
+     ; now bruno will throw daggers
+     bruno.setanim "throwing_east"
+     bruno.setloop 0
+     bruno.animate
+
+chek:
+     if (bruno.frameno==5) {
+         dagger1.show
+         dagger1.moveto ego.x ego.y
+     }
+     if (bruno.frameno==6) {
+         dagger2.show
+         dagger2.moveto ego.x ego.y
+     }
+
+     refresh
+     if (bruno.animating) goto chek
+
+     ; restore bruno
+     bruno.setanim "hanging_east"
+     bruno.setloop 1
+     bruno.animate
+
+     ; move the daggers to ego
+     while (dagger1.moving+dagger2.moving) refresh
+
+     ; hide the daggers
+     dagger1.hide
+     dagger2.hide
+
+     rip.unload
+
+     ; change mouse cursor to a clock and defrost controls
+     mouse.loadsprite "mouse.spr"
+     bar.enable
+     refresh
+} dagger_bruno
+
+fight_bruno {
+     call dagger_bruno
+} fight_bruno
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "btown.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; load the bruno object
+     object bruno = animation "bruno.anm"
+     bruno.setanim "hanging_east"
+     bruno.move 29 74
+     bruno.setspeed 1 1 5
+     bruno.setloop 1
+     bruno.animate
+     bruno.enable
+     if (night!=1) bruno.show
+
+     ; load dagger 1
+     object dagger1 = animation "bruno.anm"
+     dagger1.sethalt "dagger0"
+     dagger1.setmove "dagger0"
+     dagger1.setspeed 5 5 2
+     dagger1.face south
+     dagger1.setclip no
+     dagger1.setmask no
+     dagger1.hide
+
+     ; load dagger 2
+     object dagger2 = animation "bruno.anm"
+     dagger2.sethalt "dagger1"
+     dagger2.setmove "dagger1"
+     dagger2.setspeed 5 5 2
+     dagger2.face south
+     dagger2.setclip no
+     dagger2.setmask no
+     dagger2.hide
+
+     ; enable the mouse and the sprites
+     mouse.enable
+     if (old_room==5) goto from_house
+     if (old_room==9) goto from_town
+     if (old_room==10) goto from_roads
+     if (old_room==17) goto from_forest
+
+     ego.show
+     return
+
+from_town:
+     ego.show
+     ego.move 0 95
+     ego.moveto 15 98
+     while (ego.moving) refresh
+     return
+
+from_house:
+     ego.show
+     ego.move 151 35
+     ego.moveto 151 45
+     while (ego.moving) refresh
+     return
+
+from_roads:
+     ego.show
+     ego.move 320 115
+     ego.moveto 289 115
+     while (ego.moving) refresh
+     return
+
+from_forest:
+     ego.show
+     ego.move 140 200
+     ego.moveto 140 147
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto goto_town
+    if (ego.prioritycode==2) goto goto_house
+    if (ego.prioritycode==3) goto goto_roads
+    if (ego.prioritycode==4) goto goto_forest
+    return
+
+goto_town:
+    old_room=cur_room
+    cur_room=9
+    leave
+
+goto_house:
+    old_room=cur_room
+    cur_room=5
+    leave
+
+goto_roads:
+    old_room=cur_room
+    cur_room=10
+    leave
+
+goto_forest:
+    old_room=cur_room
+    cur_room=17
+    leave
+} run
+
+done {
+    bruno.unload
+} done

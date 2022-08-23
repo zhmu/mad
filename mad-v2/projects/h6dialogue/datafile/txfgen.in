@@ -1,0 +1,31 @@
+// every line started with #, ; or // is treated as a comment
+// blank lines are ignored
+[global]
+out=text.txf
+
+[strings]
+# Llyette's dialogue (12 strings)
+// 0 - Main (MENU)
+Hero6\nChanges\nLast Demo\nEnough Already
+// 1 - Hero6 (MENU)
+Quest for Glory\nPuzzles\nMonsters\nWizards\nHeroes\nSomething else
+// 2 - (Open)
+"Hello. I'm Llyette. None of the\nother people who are going to be\nin the game are finished being\ndrawn yet, so I was chosen totell\nyou about Hero 6, an unofficial\nsequel to Sierra's Quest for\nGlory series. As you have\nnoticed, there are some changes\nfrom our last demo."
+// 3 - Hero6
+"As I said before, Hero 6 is an\nunofficial Quest for Glory\nsequal. The game will be full\nof puzzles, monsters, wizards\nand, of course, heroes! I can't\nwait to meet that Hero guy!\nHe's cute!"
+// 4 - Hero6 - Quest for Glory
+"Quest for Glory was a five-\ngame RPG series made by\nSierra and created by Lori\nand Cory Cole.  You don't\nneed to have played any of\nthe Quest for Glory games\nto play Hero 6. But we think\nyou should, anyway!"
+// 5 - Hero6 - Puzzles
+"Now, now. You don't really\nthink I'm going to give\nanything away, do you?"
+// 6 - Hero6 - Monsters
+"No monsters have been completely\nfinalized yet, but ideas range\nfrom undeadmages to giant spiders\nto things that REALLY go bump in\nthe night!"
+// 7 - Hero6 - Wizards
+"Hero 6 will of course be full of\nmagic and magic-users, but you're\njust going to have to wait for\nthe game to see exactly who and\nwhat kind..."
+// 8 - Hero6 - Heroes
+"Well, of COURSE there's Heroes!"
+// 9 - Changes
+"Well, for one, we got the\ndialogue screen so you can ask me\nquestions, as you are doing now.\nAlso, we adjusted the graphics a\nbit so I look less squashed than\nbefore."
+// 10 - Last Demo
+"Our last demo, which you\ncan get at our website at\nwww.hero6.com, was really\njust a test.  THIS one is\nactually a demonstration\nof how things are going to\nlook in the actual game!\nSpeaking of demos, a FULLY\nINTERACTIVE demo is coming\nout SOON!  So check the\nwebsite every day! The\ndemo includes that cute\nHero guy, as well as some\nof the other characters\nthat will be in the game.\nAnd THEN there's ANOTHER\ndemo coming out after\nTHAT one! Demos\neverywhere!"
+// 11 - Enough Already
+"Leaving? I do tend to talk\ntoo much, don't I? Oh well,\nI guess I won't be seeing\nyou until the  full Hero 6\ngames is release who knows\nwhen.  So  until then, I\nguess, goodbye!"

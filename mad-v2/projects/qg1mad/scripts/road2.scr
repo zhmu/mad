@@ -1,0 +1,78 @@
+;
+; road2.scr
+;
+; script file for the roads between road #1 and road #3
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "road2.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==10) goto from_road_west
+     if (old_room==14) goto from_road_east
+     if (old_room==20) goto from_forest
+
+     ego.show
+     return
+
+from_road_west:
+     ego.show
+     ego.move 0 118
+     ego.moveto 24 118
+     while (ego.moving) refresh
+     return
+
+from_road_east:
+     ego.show
+     ego.move 320 100
+     ego.moveto 240 100
+     while (ego.moving) refresh
+     return
+
+from_forest:
+     ego.show
+     ego.move 133 50
+     ego.moveto 133 75
+     while (ego.moving) refresh
+
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_road_west
+    if (ego.prioritycode==3) goto go_road_east
+    if (ego.prioritycode==4) goto go_forest
+    return
+
+go_road_west:
+    old_room=cur_room
+    cur_room=10
+    leave
+
+go_road_east:
+    old_room=cur_room
+    cur_room=14
+    leave
+
+go_forest:
+    old_room=cur_room
+    cur_room=20
+    leave
+} run
+
+done {
+} done

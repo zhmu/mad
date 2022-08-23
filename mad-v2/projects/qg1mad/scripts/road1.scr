@@ -1,0 +1,91 @@
+;
+; road1.scr
+;
+; script file for the roads just east of the front of the town
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "road1.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==8) goto from_town
+     if (old_room==13) goto from_road_east
+     if (old_room==18) goto from_forest_south
+     if (old_room==26) goto from_forest_north
+
+     ego.show
+     return
+
+from_town:
+     ego.show
+     ego.move 0 104
+     ego.moveto 110 104
+     while (ego.moving) refresh
+     return
+
+from_road_east:
+     ego.show
+     ego.move 320 94
+     ego.moveto 290 94
+     while (ego.moving) refresh
+     return
+
+from_forest_south:
+     ego.show
+     ego.move 176 200
+     ego.moveto 176 148
+     while (ego.moving) refresh
+     return
+
+from_forest_north:
+     ego.show
+     ego.move 186 48
+     ego.moveto 186 99
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_town
+    if (ego.prioritycode==2) goto go_forest_south
+    if (ego.prioritycode==3) goto go_road_east
+    if (ego.prioritycode==4) goto go_forest_north
+    return
+
+go_town:
+    old_room=cur_room
+    cur_room=8
+    leave
+
+go_road_east:
+    old_room=cur_room
+    cur_room=13
+    leave
+
+go_forest_south:
+    old_room=cur_room
+    cur_room=18
+    leave
+
+go_forest_north:
+    old_room=cur_room
+    cur_room=26
+    leave
+} run
+
+done {
+} done

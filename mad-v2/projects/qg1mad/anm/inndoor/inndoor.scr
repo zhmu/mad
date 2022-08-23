@@ -1,0 +1,13 @@
+;
+; inndoor.scr - mad animation manager script to construct the 'inndoor' object
+;
+; 19990523    rink            created this file
+;
+[files]
+stopped.spr
+open000.spr
+open001.spr
+
+[anims]
+stopped 1 1 1 1
+opening 1 2 3

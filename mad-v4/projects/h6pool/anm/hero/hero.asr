@@ -1,0 +1,345 @@
+;
+; hero.asr -- animation script for the hero
+;
+; 20000529        rink        re-created this file
+;
+[files]
+stand.000
+stand.001
+stand.002
+stand.003
+stand.004
+stand.005
+stand.006
+stand.007
+walk_n.000
+walk_n.001
+walk_n.002
+walk_n.003
+walk_n.004
+walk_n.005
+walk_n.006
+walk_n.007
+walk_s.000
+walk_s.001
+walk_s.002
+walk_s.003
+walk_s.004
+walk_s.005
+walk_s.006
+walk_s.007
+walk_s.008
+walk_e.000
+walk_e.001
+walk_e.002
+walk_e.003
+walk_e.004
+walk_e.005
+walk_e.006
+walk_e.007
+walk_e.008
+walk_w.000
+walk_w.001
+walk_w.002
+walk_w.003
+walk_w.004
+walk_w.005
+walk_w.006
+walk_w.007
+walk_w.008
+walk_ne.000
+walk_ne.001
+walk_ne.002
+walk_ne.003
+walk_ne.004
+walk_ne.005
+walk_ne.006
+walk_nw.000
+walk_nw.001
+walk_nw.002
+walk_nw.003
+walk_nw.004
+walk_nw.005
+walk_nw.006
+walk_se.000
+walk_se.001
+walk_se.002
+walk_se.003
+walk_se.004
+walk_se.005
+walk_se.006
+walk_se.007
+walk_se.008
+walk_se.009
+walk_se.010
+walk_sw.000
+walk_sw.001
+walk_sw.002
+walk_sw.003
+walk_sw.004
+walk_sw.005
+walk_sw.006
+walk_sw.007
+walk_sw.008
+walk_sw.009
+walk_sw.010
+run_n.000
+run_n.001
+run_n.002
+run_n.003
+run_n.004
+run_n.005
+run_n.006
+run_n.007
+run_s.000
+run_s.001
+run_s.002
+run_s.003
+run_s.004
+run_s.005
+run_s.006
+run_s.007
+run_e.000
+run_e.001
+run_e.002
+run_e.003
+run_e.004
+run_e.005
+run_e.006
+run_w.000
+run_w.001
+run_w.002
+run_w.003
+run_w.004
+run_w.005
+run_w.006
+run_ne.000
+run_ne.001
+run_ne.002
+run_ne.003
+run_ne.004
+run_ne.005
+run_ne.006
+run_ne.007
+run_nw.000
+run_nw.001
+run_nw.002
+run_nw.003
+run_nw.004
+run_nw.005
+run_nw.006
+run_nw.007
+run_se.000
+run_se.001
+run_se.002
+run_se.003
+run_se.004
+run_se.005
+run_se.006
+run_se.007
+run_sw.000
+run_sw.001
+run_sw.002
+run_sw.003
+run_sw.004
+run_sw.005
+run_sw.006
+run_sw.007
+sneak_n.000
+sneak_n.001
+sneak_n.002
+sneak_n.003
+sneak_n.004
+sneak_n.005
+sneak_n.006
+sneak_n.007
+sneak_s.000
+sneak_s.001
+sneak_s.002
+sneak_s.003
+sneak_s.004
+sneak_s.005
+sneak_s.006
+sneak_s.007
+sneak_s.008
+sneak_s.009
+sneak_s.010
+sneak_e.000
+sneak_e.001
+sneak_e.002
+sneak_e.003
+sneak_e.004
+sneak_e.005
+sneak_e.006
+sneak_e.007
+sneak_e.008
+sneak_e.009
+sneak_w.000
+sneak_w.001
+sneak_w.002
+sneak_w.003
+sneak_w.004
+sneak_w.005
+sneak_w.006
+sneak_w.007
+sneak_w.008
+sneak_w.009
+sneak_ne.000
+sneak_ne.001
+sneak_ne.002
+sneak_ne.003
+sneak_ne.004
+sneak_ne.005
+sneak_ne.006
+sneak_ne.007
+sneak_ne.008
+sneak_ne.009
+sneak_ne.010
+sneak_ne.011
+sneak_nw.000
+sneak_nw.001
+sneak_nw.002
+sneak_nw.003
+sneak_nw.004
+sneak_nw.005
+sneak_nw.006
+sneak_nw.007
+sneak_nw.008
+sneak_nw.009
+sneak_nw.010
+sneak_nw.011
+sneak_se.000
+sneak_se.001
+sneak_se.002
+sneak_se.003
+sneak_se.004
+sneak_se.005
+sneak_se.006
+sneak_se.007
+sneak_se.008
+sneak_se.009
+sneak_se.010
+sneak_se.011
+sneak_sw.000
+sneak_sw.001
+sneak_sw.002
+sneak_sw.003
+sneak_sw.004
+sneak_sw.005
+sneak_sw.006
+sneak_sw.007
+sneak_sw.008
+sneak_sw.009
+sneak_sw.010
+sneak_sw.011
+climb.000
+climb.001
+climb.002
+climb.003
+climb.004
+climb.005
+climb.006
+climb.007
+climb.008
+pickup_e.000
+pickup_e.001
+pickup_e.002
+pickup_e.003
+pickup_e.004
+pickup_e.005
+pickup_e.006
+pickup_e.007
+pickup_e.008
+pickup_e.009
+pickup_e.010
+pickup_e.011
+pickup_e.012
+pickup_e.013
+pickup_e.014
+pickup_e.015
+pickup_e.016
+pickup_e.017
+pickup_e.018
+pickup_e.019
+pickup_e.020
+pickup_e.021
+pickup_e.022
+pickup_e.023
+pickup_w.000
+pickup_w.001
+pickup_w.002
+pickup_w.003
+pickup_w.004
+pickup_w.005
+pickup_w.006
+pickup_w.007
+pickup_w.008
+pickup_w.009
+pickup_w.010
+pickup_w.011
+pickup_w.012
+pickup_w.013
+pickup_w.014
+pickup_w.015
+pickup_w.016
+pickup_w.017
+pickup_w.018
+pickup_w.019
+pickup_w.020
+pickup_w.021
+pickup_w.022
+pickup_w.023
+standup_e.000
+standup_e.001
+standup_e.002
+standup_e.003
+standup_e.004
+standup_e.005
+standup_e.006
+standup_e.007
+standup_e.008
+standup_e.009
+standup_w.000
+standup_w.001
+standup_w.002
+standup_w.003
+standup_w.004
+standup_w.005
+standup_w.006
+standup_w.007
+standup_w.008
+standup_w.009
+
+[anims]
+standing 1 2 3 4 5 6 7 8
+walking_north 9 10 11 12 13 14 15 16
+walking_south 17 18 19 20 21 22 23 24 25
+walking_east 26 27 28 29 30 31 32 33 34
+walking_west 35 36 37 38 39 40 41 42 43
+walking_ne 44 45 46 47 48 49 50
+walking_nw 51 52 53 54 55 56 57
+walking_se 58 59 60 61 62 63 64 65 66 67 68
+walking_sw 69 70 71 72 73 74 75 76 77 78 79
+running_north 80 81 82 83 84 85 86 87
+running_south 88 89 90 91 92 93 94 95
+running_east 96 97 98 99 100 101 102
+running_west 103 104 105 106 107 108 109
+running_ne 110 111 112 113 114 115 116 117
+running_nw 118 119 120 121 122 123 124 125
+running_se 126 127 128 129 130 131 132 133
+running_sw 134 135 136 137 138 139 140 141
+sneaking_north 142 143 144 145 146 147 148 149
+sneaking_south 150 151 152 153 154 155 156 157 158 159 160
+sneaking_east 161 162 163 164 165 166 167 168 169 170
+sneaking_west 171 172 173 174 175 176 177 178 179 180
+sneaking_ne 181 182 183 184 185 186 187 188 189 190 191 192
+sneaking_nw 193 194 195 196 197 198 199 200 201 202 203 204
+sneaking_se 205 206 207 208 209 210 211 212 213 214 215 216
+sneaking_sw 217 218 219 220 221 222 223 224 225 226 227 228
+climbing 229 230 231 232 233 234 235 236 237
+pickup_east 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261
+pickup_west 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285
+standup_e 286 287 288 289 290 291 292 293 294 295
+standup_w 296 297 298 299 300 301 302 303 304 305
+lying_e 286 286 286 286
+lying_w 296 296 296 296

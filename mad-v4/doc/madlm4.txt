@@ -1,0 +1,45 @@
+    The MAD Linked MAD (LM) format 4.0
+       Done at 6 March 2000 by Rink
+-----------------------------------------
+
+At the beginning of the file one 32 byte header
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            4 ³ ID code 0x21524353 (SCR!)                          ³
+³      4 ³            2 ³ Version number (100 = 1.0, 201 = 2.01, etc.)       ³
+³      6 ³            4 ³ Script code size                                   ³
+³     10 ³            4 ³ Script data size                                   ³
+³     14 ³            4 ³ Number of objects                                  ³
+³     18 ³            4 ³ Offset of object info                              ³
+³     22 ³            4 ³ Flags                                              ³
+³     26 ³            6 ³ Unused                                             ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Flags are defined as following:
+ÚÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Bit ³ Description                                                          ³
+ÃÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³   0 ³ Set if script serves as the root script (script is to be inherinted  ³
+³     ³                                          from)                       ³
+ÀÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+After this [Script code size] bytes of raw script code will come. All this
+data is perfectly valid (or should be? <g>).
+
+After this [Script data size] bytes of raw script data will come.
+
+The object info is defined as [Number of objects] times the following
+structure:
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            4 ³ Number of methods                                  ³
+³      4 ³            2 ³ Object map code (real object id                    ³
+³      6 ³            4 ³ Flags                                              ³
+³     10 ³            6 ³ Unused                                             ³
+³     16 ³  4 * methods ³ Offsets of methods, relative to script code,       ³
+³        ³              ³ 0ffffffffh if it should be inherited               ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Flags are undefined as of now.

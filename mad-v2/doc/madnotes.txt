@@ -1,0 +1,5 @@
+Over het MAD project:
+---------------------
+- De objecten MOETEN in de volgorde ge‹nitialiseerd worden waarin ze staan in
+  MAIN.CPP. Als je hier iets aan wilt veranderen, mail het me eerst even
+  i.v.m. de dependancies van de andere modules en de andere platforms (RiNK)

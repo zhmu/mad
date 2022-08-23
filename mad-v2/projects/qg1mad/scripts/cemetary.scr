@@ -1,0 +1,63 @@
+;
+; cemetary.scr
+;
+; script file for the cemetary
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "cemetary.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==11) goto from_forest_north
+     if (old_room==24) goto from_forest_south
+
+     ego.show
+     return
+
+from_forest_north:
+     ego.show
+     ego.move 156 92
+     ego.stop
+     ego.face south
+     return
+
+from_forest_south:
+     ego.show
+     ego.move 153 200
+     ego.moveto 153 147
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_forest_north
+    if (ego.prioritycode==3) goto go_forest_south
+    return
+
+go_forest_north:
+    old_room=cur_room
+    cur_room=11
+    leave
+
+go_forest_south:
+    old_room=cur_room
+    cur_room=24
+    leave
+} run
+
+done {
+} done

@@ -1,0 +1,77 @@
+;
+; forest9.scr
+;
+; script file for the forest south of the cemetary
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "forest1.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==12) goto from_cemetary
+     if (old_room==23) goto from_archery
+     if (old_room==25) goto from_forest_south
+
+     ego.show
+     return
+
+from_cemetary:
+     ego.show
+     ego.move 130 51
+     ego.moveto 130 100
+     while (ego.moving) refresh
+     return
+
+from_archery:
+     ego.show
+     ego.move 320 100
+     ego.moveto 249 100
+     while (ego.moving) refresh
+     return
+
+from_forest_south:
+     ego.show
+     ego.move 153 200
+     ego.moveto 153 153
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_cemetary
+    if (ego.prioritycode==2) goto go_archery
+    if (ego.prioritycode==3) goto go_forest_south
+    return
+
+go_cemetary:
+    old_room=cur_room
+    cur_room=12
+    leave
+
+go_archery:
+    old_room=cur_room
+    cur_room=23
+    leave
+
+go_forest_south:
+    old_room=cur_room
+    cur_room=25
+    leave
+} run
+
+done {
+} done

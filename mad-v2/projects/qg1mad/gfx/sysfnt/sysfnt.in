@@ -1,0 +1,104 @@
+w6
+h9
+;special chars
+s32 void.spr 1
+s33 excl.spr 1
+s34 dquote.spr 1
+s35 pound.spr 1
+s36 dollar.spr 1
+s37 percent.spr 1
+s39 chigh.spr 1
+s40 popen.spr 1
+s41 pclose.spr 1
+s43 add.spr 1
+s44 comma.spr 1
+s45 minus.spr 1
+s46 dot.spr 1
+s47 slash.spr 1
+;numbers
+s48 0.spr 1
+s49 1.spr 1
+s50 2.spr 1
+s51 3.spr 1
+s52 4.spr 1
+s53 5.spr 1
+s54 6.spr 1
+s55 7.spr 1
+s56 8.spr 1
+s57 9.spr 1
+; more special chars
+s58 colon.spr 1
+s59 scolon.spr 1
+s60 lesser.spr 1
+s61 equal.spr 1
+s62 greater.spr 1
+s63 question.spr 1
+;lowercase
+s65 a.spr 1
+s66 b.spr 1
+s67 c.spr 1
+s68 d.spr 1
+s69 e.spr 1
+s70 f.spr 1
+s71 g.spr 1
+s72 h.spr 1
+s73 i.spr 1
+s74 j.spr 1
+s75 k.spr 1
+s76 l.spr 1
+s77 m.spr 1
+s78 n.spr 1
+s79 o.spr 1
+s80 p.spr 1
+s81 q.spr 1
+s82 r.spr 1
+s83 s.spr 1
+s84 t.spr 1
+s85 u.spr 1
+s86 v.spr 1
+s87 w.spr 1
+s88 x.spr 1
+s89 y.spr 1
+s90 z.spr 1
+; even more special chars
+s91 bopen.spr 1
+s92 bslash.spr 1
+s93 bclose.spr 1
+s94 caret.spr 1
+s95 uscore.spr 1
+s96 backt.spr 1
+;lowercase
+s97 a.spr 1
+s98 b.spr 1
+s99 c.spr 1
+s100 d.spr 1
+s101 e.spr 1
+s102 f.spr 1
+s103 g.spr 1
+s104 h.spr 1
+s105 i.spr 1
+s106 j.spr 1
+s107 k.spr 1
+s108 l.spr 1
+s109 m.spr 1
+s110 n.spr 1
+s111 o.spr 1
+s112 p.spr 1
+s113 q.spr 1
+s114 r.spr 1
+s115 s.spr 1
+s116 t.spr 1
+s117 u.spr 1
+s118 v.spr 1
+s119 w.spr 1
+s120 x.spr 1
+s121 y.spr 1
+s122 z.spr 1
+; and still more special chars
+s124 pipe.spr 1
+s126 tilde.spr 1
+; test char
+s64 test.spr 1
+;unknown char
+s0 unknown.spr 1
+q

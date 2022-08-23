@@ -1,0 +1,40 @@
+#
+# Makefile for MAD/DOS
+#
+# 19990610	WvE		created
+# 19991118	rink		updated
+# 19991119 	rink		edited it so it will make MAD/X and MAL/VGL.
+# 20000102	rink		now it'll compile DOS as well!
+# 20000319	rink		changed default graphics driver to vesa for dos
+# 20000530      rink            added zlib to the libraries
+# 20000619	rink		killed the UNIX/Windows support and moved all
+#                               that to separate makefiles, moved platform-
+#                               specific stuff to directories and includes to
+#				include directory
+# 20000629	rink		added Wat-TCP/32 and multiplayer... hope it
+#				works!
+# 20000719	rink		it didn't... killed it
+#
+DEFAULT         : debug
+
+OBJS		= main.o archive.o bar.o gadgets.o gfx.o project.o script.o \
+		  anm.o debugmad.o fontman.o objman.o dlgman.o parser.o \
+		  textman.o game.o controls.o inv.o
+
+CFLAGS		= -Iinclude -Idos/include -DDOS -g
+
+COMPILE		= gcc $(CFLAGS) -c -DDEBUG
+
+LIBS		= -lz
+
+%.o:		%.cpp
+		$(COMPILE) $<
+
+debug:		$(OBJS) dos/gfx_vesa.o dos/ctrldrv.o
+		gxx -g -o mad.exe $(OBJS) gfx_vesa.o ctrldrv.o $(LIBS)
+		
+release:	$(OBJS) dos/gfx_vesa.o dos/ctrldrv.o
+		gxx -o mad.exe $(OBJS) gfx_vesa.o ctrldrv.o $(LIBS)
+		
+clean:
+		del *.o mad.exe

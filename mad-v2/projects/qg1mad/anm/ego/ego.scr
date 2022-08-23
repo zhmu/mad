@@ -1,0 +1,45 @@
+;
+; ego.scr - mad animation manager script to construct the 'ego' character
+;
+; 1999028       rink            created this file
+;
+[files]
+east0.spr
+east1.spr
+east2.spr
+east3.spr
+east4.spr
+east5.spr
+east6.spr
+east7.spr
+south0.spr
+south1.spr
+south2.spr
+south3.spr
+south4.spr
+south5.spr
+north0.spr
+north1.spr
+north2.spr
+north3.spr
+north4.spr
+north5.spr
+west0.spr
+west1.spr
+west2.spr
+west3.spr
+west4.spr
+west5.spr
+west6.spr
+west7.spr
+standw.spr
+stande.spr
+standn.spr
+stands.spr
+
+[anims]
+walking_east 1 2 3 4 5 6 7 8
+walking_south 9 10 11 12 13 14
+walking_north 15 16 17 18 19 20
+walking_west 21 22 23 24 25 26 27 28
+standing 29 30 31 32

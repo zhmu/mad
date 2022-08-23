@@ -1,0 +1,17 @@
+// 0
+[dagger]
+max_quantity=0
+flags=0
+icon=dagger.spr
+
+// 1
+[healing potion]
+max_quantity=0
+flags=0
+icon=hpotion.spr
+
+// 2
+[mana potion]
+max_quantity=0
+flags=0
+icon=mpotion.spr

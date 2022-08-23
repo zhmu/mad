@@ -1,0 +1,117 @@
+;
+; town.scr
+;
+; script file for the town
+;
+extern animation ego
+extern text copyright
+extern var night
+extern var old_room
+extern var cur_room
+extern var time
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "town.pic"
+
+     ; load the sheriff object
+     object sheriff = animation "sheriff.anm"
+     sheriff.setmove "stopped"
+     sheriff.sethalt "stopped"
+     sheriff.face south
+     sheriff.move 133 97
+     if (night!=1) sheriff.show
+
+     ; construct the smoke object
+     object smoke = animation "sheriff.anm"
+     smoke.setanim "smoke_trail"
+     smoke.move 149 100
+     smoke.setspeed 1 1 2
+     smoke.setloop 1
+     smoke.animate
+     if (night!=1) smoke.show
+
+     ; construct the inndoor object
+     object door = animation "inndoor.anm"
+     door.move 61 84
+     door.sethalt "stopped"
+     door.face south
+     door.show
+
+     ; construct the towngate object and disable mask for it
+     object towngate = animation "towngate.anm"
+     towngate.setmask no
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     ; handle the towngate position
+     if (night!=0) goto towngate_closed
+
+     ; towngate is open
+     towngate.move 82 178
+     towngate.sethalt "opened"
+
+resume_init:
+     towngate.face south
+     towngate.show
+
+     if (old_room==8) goto from_towngates
+     if (old_room==0) goto from_intro
+     ego.show
+     return
+
+towngate_closed:
+     towngate.move 180 187
+     towngate.sethalt "closed"
+     system.darkenpal 2
+     goto resume_init
+
+from_intro:
+     ; change mouse cursor to a clock and freeze controls
+     mouse.loadsprite "clock.spr"
+     bar.disable
+
+     ego.show
+     ego.move 230 200
+     ego.moveto 162 136
+     while (ego.moving) refresh
+     ego.face north
+
+     ; restore mouse cursor and defrost controls
+     mouse.loadsprite "mouse.spr"
+     bar.enable
+     return
+
+from_towngates:
+     ego.show
+     ego.move 196 200
+     ego.moveto 196 150
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_towngates
+    return
+
+go_towngates:
+    old_room=cur_room
+    cur_room=8
+    leave
+} run
+
+done {
+    sheriff.unload
+    smoke.unload
+    door.unload
+    towngate.unload
+} done

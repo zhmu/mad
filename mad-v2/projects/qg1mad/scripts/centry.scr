@@ -1,0 +1,127 @@
+;
+; centry.scr
+;
+; script file for the castle entry
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+var count
+
+use_fredrich {
+     ; set mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     bar.disable
+
+     ; let fredrich do his talking
+     fredrich.setanim "talking"
+
+     ego.face north
+     count=0
+
+fredrich_waitalk:
+     fredrich.setanim "talking"
+     fredrich.animate
+     while (fredrich.animating) refresh
+
+     if (count==2) count=3
+     if (count==1) count=2
+     if (count==0) count=1
+     if (count!=3) goto fredrich_waitalk
+
+     ; make fredrich look south again
+     fredrich.face south
+
+     ; unfreeze the controls and restore the mouse cursor
+     bar.enable
+     mouse.loadsprite "mouse.spr"
+} use_fredrich
+
+use_pierre {
+     ; set mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     bar.disable
+
+     ; let pierre do his talking
+     pierre.setanim "talking"
+
+     ego.face north
+     count=0
+
+pierre_waitalk:
+     pierre.setanim "talking"
+     pierre.animate
+     while (pierre.animating) refresh
+
+     if (count==2) count=3
+     if (count==1) count=2
+     if (count==0) count=1
+     if (count!=3) goto pierre_waitalk
+
+     ; make fredrich look south again
+     pierre.face south
+
+     ; unfreeze the controls and restore the mouse cursor
+     bar.enable
+     mouse.loadsprite "mouse.spr"
+} use_pierre
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "centry.pic"
+
+     ; load the left guard (fredrich)
+     object fredrich = animation "fredrich.anm"
+     fredrich.sethalt "standing"
+     fredrich.face south
+     fredrich.move 102 84
+     fredrich.show
+     fredrich.setspeed 1 1 2
+     fredrich.enable
+
+     ; load the right guard (pierre)
+     object pierre = animation "pierre.anm"
+     pierre.sethalt "standing"
+     pierre.face south
+     pierre.move 197 84
+     pierre.show
+     pierre.setspeed 1 1 2
+     pierre.enable
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     ego.show
+
+     ; user must have come from the front door.
+     ego.stop
+
+     ego.move ego.x 200
+     ego.moveto ego.x 150
+
+ego_wait:
+     refresh
+     if (ego.moving) goto ego_wait
+} init
+
+run {
+    if (ego.prioritycode==8) goto go_front
+    return
+
+go_front:
+    old_room=cur_room
+    cur_room=2
+    leave
+} run
+
+done {
+} done

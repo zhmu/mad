@@ -1,0 +1,11 @@
+// 0
+[sword]
+max_quantity=0
+flags=0
+icon=i_sword.spr
+
+// 1
+[wooden shield]
+max_quantity=0
+flags=0
+icon=i_wshld.spr

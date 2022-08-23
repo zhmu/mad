@@ -1,0 +1,77 @@
+;
+; forest11.scr
+;
+; script file for the forest east of the healer's house and north of road #1
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "forest1.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==20) goto from_forest_east
+     if (old_room==10) goto from_road
+     if (old_room==5) goto from_house
+
+     ego.show
+     return
+
+from_forest_east:
+     ego.show
+     ego.move 320 101
+     ego.moveto 243 101
+     while (ego.moving) refresh
+     return
+
+from_road:
+     ego.show
+     ego.move 153 200
+     ego.moveto 153 153
+     while (ego.moving) refresh
+     return
+
+from_house:
+     ego.show
+     ego.move 0 103
+     ego.moveto 34 103
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==4) goto go_house
+    if (ego.prioritycode==3) goto go_road
+    if (ego.prioritycode==2) goto go_forest_east
+    return
+
+go_forest_east:
+    old_room=cur_room
+    cur_room=20
+    leave
+
+go_road:
+    old_room=cur_room
+    cur_room=10
+    leave
+
+go_house:
+    old_room=cur_room
+    cur_room=5
+    leave
+} run
+
+done {
+} done

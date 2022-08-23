@@ -1,0 +1,102 @@
+[global]
+out=text.txf
+
+[strings]
+// 0 - System controls text 
+\sHero6 Configuratiescherm\s\n\s\nTerug naar het spel\nEinde
+// 1 
+Hero6: Rite of Passage Demo Versie 1.0\n\n(c) 1999, 2000 Het Hero6 Team\n\nHet Hero6 Team bestaat uit\n\nPresident\nRink Springer - TUOIC\n\nPlaatjes\n\nLeiderr\nBryan Yarrow - Aftershock\n\nLeden\nChris - Bonito\nAndreas Neekburn - Sir Elthil\nDaniel Teti - ^^Gabriel\nJoe McCombs - PHattiE\n\nProgrammeren\n\nLeider\nRink Springer - TUOIC\n\nLeden\nChris Cavey - ZeroX\nJavi G.G. - TheDeath\n\nVerhaal\n\nLeiders\nBlueNinja\nJoost Brouwer - Paladin Valiant\nPseudonym\n\nArea Members\nBen - Fernin\n\nMuziek en Geluid\n\nLeider\nRobert Richards - The Adventurer\n\nLeden\nDerek von Krogh - Derek\n\nMet dank aan\nJoe McCombs - PHattiE\nMaria\nBrad Nace - Centaur of Sifnos\nKarl Semich - Te'ja
+// 2 - Magic message 
+Je kent geen toverspreuken\n(geeft niets, we kennen het gevoel :)
+// 3 
+b 
+// 4 
+c 
+// 5 
+d 
+// 6 
+e 
+// 7 
+f 
+// 8 
+g 
+// 9 - Title: Hero message 
+Daar is hij dan! De Hero6 Held!
+// 10 - GL: Opening text 
+"Je bent wakker! Voel je je beter?"
+// 11 - GL: Dialog options 
+Probeer op te staan\nVraag haar naar haar naam\nWaar ben ik?\nHoe kom ik hier?\nTot ziens
+// 12 - GL: Submenu: Ask her for her name 
+Vraag naar meer over Greenleaf\nVertel over jezelf\nIets anders
+// 13 - GL: Subment Tell about yourself 
+Vraag naar vestigingen\nIets anders
+// 14 - GL: Settlements 
+Vraag naar Albion\nVraag naar Helmsdale\nVraag naar de hertog\nIets anders
+// 15 - GL: After 'How did I get here?' 
+Vraag naar monster\nIets anders
+// 16 - GL: After Ask about monsters 
+Vraag naar vallei\nIets anders
+// 17 - GL: After 'Ask about valley' 
+Vraag naar problemen\nIets anders
+// 18 - GL: After 'Ask about Trouble' 
+Vraag naar de hertog\nVraag naar de Golems\nIets anders
+// 19 - GL: After 'Ask about Golems' 
+Vraag naar 'iemand'\nIets anders
+// 20 
+20 
+// 21 
+21 
+// 22 
+22 
+// 23 
+23 
+// 24 
+24 
+// 25 
+25 
+// 26 
+26 
+// 27 
+27 
+// 28 
+28 
+// 29 
+29 
+// 30 - GL reply to getting up 
+"Je moet meer rusten;\nJe bent nog niet helemaal genezen.\nIk laat je zo opstaan"
+// 31 - GL's name 
+"Ik ben Greenleaf"
+// 32 - GL: Where is he? 
+"Je bent in mijn huis. Het is een mooie plaats, niet?"
+// 33 - GL: How he got here 
+"Je was aangevallen en\nverwond door dat vreselijke\nmonster. Gelukkig zag ik je\nen kon ik het monster\nwegjagen met een\ntoverspreuk. Je was gewond,\ndus heb ik je naar mijn huis\ngebracht, waar het veiliger\nwas."
+// 34 - GL: Goodbye 
+"Wees voorzichtig! Tot ziens,\nen sterkte!"
+// 35 - Narrator 
+Je opent je ogen en ziet\ndat de stem van een\nbeeldschone vrouw is. Je\nligt in een open plek in\neen bos, die gevuld is\nmet het gevoel van vrede\nen geluk. Je bedenkt je\ndat de vrouw je een vraag\nstelde, dus schud je je\nhoofd als antwoord. De\nvrouw glimlacht.
+// 36 - GL: Ask for more about Greenleaf 
+"Je bent een nieuwsgierige\nadvonturier! Ik ben een\n(mage?). I heb de\nverantwoordelijkheid als\nbewaker van dit bos op me\ngenomen. Het is niet\ngemakkelijk, vooral omdat\ner twee verstegingen in de\nvallei zijn, maar ik\nbescherm het bos op de beste\manier die ik kan. Wie ben jij?"
+// 37 - GL: Tell about yourself 
+"Dus beantwoord je een geschrift van\nHertog Conrad waarin staat dat Albion een\nHeld nodig heeft? Hij moet\nerg wanhopig zijn, als hij hulp van de\nbuitenwereld nodig heeft. De zaken\nzijn erger dan ik had gedacht...\nIk wens je veel sterkte op je\ntocht. Is er iets dat ik je kan\nvertellen dat je zal helpen?"
+// 38 - GL: About about settlements 
+"Nou, er is Albion en Helsmdale.\nAlbion, die genoemd is naar de\nvallei, is de grootste.\nhet is een stad vlak bij\nhet kasteel van de Hertog\n. Helsmdale is een klein dorpje\ndichter bij de kust."
+// 39 - GL: About Albion 
+"Het spijt me, maar ik ga\nzeer zelden naar de stad.\nIk kan je dus niet meer informatie geven."
+// 40 - GL: About Helmsdale 
+"Het spijt me, maar ik ga\nzeer zelden naar het dorp.\nIk kan je dus niet meer\ninformatie geven over Helsmdale."
+// 41 - GL: About Duke 
+"Thorn Conrad is de plaatselijke\nLord. Hij moet de vrede tussen\nde bewoners van de valley bewaren.\nHertog Conrad is ook de commandant\nvan de bewakers en\nis verantwoordelijk voor\nde verdediging van de vallei."
+// 42 - GL: About monster 
+"Het was een golem, een\nvan de vele typen monsters\ndie deze valley plage.\nZe zijn heel gevaarlijk,\nje zou voorzichtiger moeten zijn."
+// 43 - GL: Ask about valley 
+"Deze plaats heet Albion\n. Een mooie naam voor een\nrustige, mooie plaats.... ten minste,\ndeze vallei was rustig todat de problemen\nenige tijd geleden begonnen."
+// 44 - GL: About trouble 
+"Een paar maanden geleden begon het\naantal monsters van de vallei te stijgen.\nNormaal zorgen de soldaten\nvan Lord Conrad ervoor dat het aantal\nop veilig peil blijft,\nmaar hij heeft problemen met een groep die zich\n"Rogues" noemt, en kon niet ingrijpen toen\nde monsters vermeerderen."
+// 45 - GL: More about trouble 
+"Anders monsters zijn onnatuurlijk en kwaad...\nHet monster dat je aanviel is zo'n voorbeeld.\nIk kan de boze magie voelen die\nde Golems voortbeweegt...\n*shud*
+// 46 - GL: About Duke (again! XXX: must do linking, should be able to insert [@41] here) 
+"Thorn Conrad is de plaatselijke\nLord. Hij moet de vrede tussen\nde bewoners van de valley bewaren.\nHertog Conrad is ook de commandant\nvan de bewakers en\nis verantwoordelijk voor\nde verdediging van de vallei."
+// 47 - GL: About golems 
+"Golems zijn magisch-voorbewogen\nmonsters, normaal gemaakt uit\néén materiaal, zoals hout of klei.\nIemand heeft ze gemaakt in Albion Vallei;\n de golems hebben\nveel boeren gedwongen\nde vallei te verlaten.\nDe wezens\nvernietigen boerderijen\nen vermoorden iedereen die in\nhun weg staat."
+// 48 - GL: Ask about someone 
+"Ik heb geruchten gehoord,\ndat een boze tovenaar\nin het noorden van hier\nde golems maakt, maar ik weet\nniet of het waar is.\nIk ben de tovenaar van\nhet gerucht nog nooit tegengekomen."

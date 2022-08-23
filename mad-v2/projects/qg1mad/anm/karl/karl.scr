@@ -1,0 +1,35 @@
+;
+; guard.scr - mad animation manager script to construct the 'karl' character
+;             at the castle
+;
+; 19990315    rink            created this file
+; 19990317    rink            added the talking sprites and standing sprite
+; 19990510    rink            changed the name to from 'guard' to 'karl'
+;
+[files]
+east0.spr
+east1.spr
+east2.spr
+east3.spr
+east4.spr
+east5.spr
+west0.spr
+west1.spr
+west2.spr
+west3.spr
+west4.spr
+west5.spr
+stand.spr
+talk0.spr
+talk1.spr
+talk2.spr
+talk3.spr
+talk4.spr
+
+[anims]
+walking_east 1 2 3 4 5 6
+walking_west 7 8 9 10 11 12
+walking_north 1
+walking_south 13
+stopped 13 13 13 13
+talking 14 15 16 17 18

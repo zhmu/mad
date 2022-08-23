@@ -1,0 +1,60 @@
+MAD Error reference:
+
+/* General errors */
+Error 1: unable to load '<...>'
+Error 2: out of memory ([...] bytes)
+Error 3: read error (file <...>)
+Error 4: file '<...>' not found in archive
+Error 5: animation error '<...>' when loading file '[...]'
+Error 6: emergency exit
+Error 7: unable to create <...> object
+Error 8: exited by windows message
+Error 9: cannot initialize '<...>', archive error '<...>'
+
+/* Script manager errors */
+Error 100: unknown object opcode $[...] at offset $[...]
+Error 101: script procedure '<...>' hasn't got a valid offsets
+Error 102: length of string at offset $[...] is $[...] bytes, and maximum is set to $[...]
+Error 103: variable 1 has type $[...], which is unknown
+Error 104: variable 2 has type $[...], which is unknown
+Error 105: condition $[...] is unknown
+Error 106: variable has type $[..], which is unknown (offset $[...])
+Error 107: handleobjectopcode called with previous opcode $[...]
+Error 108: tried to access object $[...], $[...] is the maximum
+Error 109: unable to set halt sequence '<...>' at $[...]
+Error 110: can only dispose scripts from main script
+Error 111: couldn't find animation sequence '<...>' for object $[...]
+Error 112: cannot set priority level to $[...] when there are $[...] priorities possible
+Error 113: unknown opcode $[...] at offset $[...]
+Error 114: procedure '<...>' never declared
+
+/* Bar errors */
+Error 200: too much icons in bar, cannot add '<...>'
+Error 201: cannot retrieve name of icon [...], that icon was never loaded
+Error 202: tried to use object $[...] as move object, $[...] is the maximum
+Error 203: tried to use internal object [...] as move object
+
+/* Graphics manager errors */
+Error 300: animation object '<...>' doesn't have a valid source number
+Error 301: animation object '<...>' doesn't have a valid animation sequence number
+Error 302: animation object '<...>' doesn't have a valid animation frame number
+Error 303: animation object '<...>' doesn't have a valid animation sprite number
+Error 304: cannot load '<...>', no more data sprites available
+Error 305: cannot load '<...>', no more animation data objects are available
+Error 306: cannot load '<...>', it is not a picture
+Error 307: cannot load '<...>', it has a wrong picture version
+Error 308: animation object '<...>' doesn't have a valid mask direction
+
+/* Windows port errors */
+Error 1000: Unable to register class
+Error 1001: Unable to create window
+Error 1002: Unable to initialize DirectDraw
+Error 1003: SetCooperativeLevel() failed
+Error 1004: SetDisplayMode() failed
+Error 1005: CreateSurface() failed
+Error 1006: GetAttachedSurface() failed
+Error 1007: CreatePalette() failed
+Error 1008: SetPalette() failed
+Error 1009: Lock() failed
+Error 1010: Restore() failed
+Error 1011: SetEntries() failed

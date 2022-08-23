@@ -1,0 +1,40 @@
+   MAD font file format 1.0
+ Done at 23 October 1998 by RiNK
+---------------------------------
+
+At the beginning of the file one 64 byte header
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            4 ³ ID code 0x4d4144464e54 (MADFNT)                    ³
+³      4 ³            2 ³ Version number (100 = 1.0, 201 = 2.01, etc.)       ³
+³      6 ³            1 ³ Font height                                        ³
+³      7 ³            1 ³ Font width                                         ³
+³      8 ³           32 ³ Font entry describer (see table)                   ³
+³     40 ³           24 ³ Unused                                             ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Font entry describer
+--------------------
+This are 32 bytes of 8 bits (duh!). Each byte describes if a char should be
+used, like this, for the byte at offset 6:
+
+ÚÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Bit ³ Description                                                          ³
+ÃÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³  0  ³ Enable/disable char 248                                              ³
+³  1  ³ Enable/disable char 249                                              ³
+³  2  ³ Enable/disable char 250                                              ³
+³  3  ³ Enable/disable char 251                                              ³
+³  4  ³ Enable/disable char 252                                              ³
+³  5  ³ Enable/disable char 253                                              ³
+³  6  ³ Enable/disable char 254                                              ³
+³  7  ³ Enable/disable char 255                                              ³
+ÀÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Formula to check if a char should be used is
+
+USE = Buf[Char number DIV 8] AND (2 to the power ((Char number MOD 8) + 1))
+
+Followed by this comes 256 times [Font Height * Font width] times the multi-
+color font data. Color 1 is treated as a background color!

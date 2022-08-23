@@ -1,0 +1,77 @@
+;
+; archery.scr
+;
+; script file for the archery north of forest 8
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "archery.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==22) goto from_forest_south
+     if (old_room==17) goto from_forest_east
+     if (old_room==24) goto from_forest_west
+
+     ego.show
+     return
+
+from_forest_south:
+     ego.show
+     ego.move 152 200
+     ego.moveto 152 149
+     while (ego.moving) refresh
+     return
+
+from_forest_east:
+     ego.show
+     ego.move 320 130
+     ego.moveto 289 130
+     while (ego.moving) refresh
+     return
+
+from_forest_west:
+     ego.show
+     ego.move 0 136
+     ego.moveto 20 136
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_forest_south
+    if (ego.prioritycode==2) goto go_forest_east
+    if (ego.prioritycode==3) goto go_forest_west
+    return
+
+go_forest_south:
+    old_room=cur_room
+    cur_room=22
+    leave
+
+go_forest_east:
+    old_room=cur_room
+    cur_room=17
+    leave
+
+go_forest_west:
+    old_room=cur_room
+    cur_room=24
+    leave
+} run
+
+done {
+} done

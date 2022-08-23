@@ -1,0 +1,77 @@
+;
+; forest7.scr
+;
+; script file for the forest north of road #2
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "forest7.pic"
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     if (old_room==13) goto from_road
+     if (old_room==21) goto from_snow
+     if (old_room==26) goto from_forest_west
+
+     ego.show
+     return
+
+from_road:
+     ego.show
+     ego.move 115 200
+     ego.moveto 115 150
+     while (ego.moving) refresh
+     return
+
+from_snow:
+     ego.show
+     ego.move 320 102
+     ego.moveto 193 102
+     while (ego.moving) refresh
+     return
+
+from_forest_west:
+     ego.show
+     ego.move 0 105
+     ego.moveto 60 105
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==1) goto go_road
+    if (ego.prioritycode==2) goto go_snow
+    if (ego.prioritycode==4) goto go_forest_west
+    return
+
+go_road:
+    old_room=cur_room
+    cur_room=13
+    leave
+
+go_snow:
+    old_room=cur_room
+    cur_room=21
+    leave
+
+go_forest_west:
+    old_room=cur_room
+    cur_room=26
+    leave
+} run
+
+done {
+} done

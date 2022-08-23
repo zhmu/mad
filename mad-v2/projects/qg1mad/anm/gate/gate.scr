@@ -1,0 +1,15 @@
+;
+; gate.scr - mad animation manager script to construct the 'gate' character
+;            at the castle
+;
+; 19990315    rink            created this file
+;
+[files]
+gate.spr
+
+[anims]
+moving_east 1
+moving_west 1
+moving_north 1
+moving_south 1
+stopped 1 1 1 1

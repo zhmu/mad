@@ -1,0 +1,44 @@
+;
+; stables.scr
+;
+; script file for the stables
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture and restore the mouse cursor
+     loadscreen "stables.pic"
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     ego.show
+
+     ; user must have come from the front door.
+     ego.move 0 ego.y
+     ego.moveto 15 ego.y
+     while (ego.moving) refresh
+     ego.face east
+} init
+
+run {
+    if (ego.prioritycode==2) goto go_castle
+    return
+
+go_castle:
+    old_room=cur_room
+    cur_room=2
+    leave
+} run
+
+done {
+} done

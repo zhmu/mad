@@ -1,0 +1,16 @@
+;
+; llyette.in - mad animation manager script to construct llyette's talking
+;              animations
+;
+; 19990820  rink            created this file
+; 19990829  rink            renamed it to llyette
+;
+[files]
+eyes000.spr
+talk000.spr
+talk001.spr
+talk002.spr
+
+[anims]
+blink_eyes 1 1
+talking 2 3 4

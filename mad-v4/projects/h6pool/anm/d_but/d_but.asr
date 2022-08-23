@@ -1,0 +1,9 @@
+[files]
+demo.spr
+credits.spr
+exit.spr
+
+[anims]
+demo 1 1 1 1
+credits 2 2 2 2
+exit 3 3 3 3

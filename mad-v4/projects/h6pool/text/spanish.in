@@ -1,0 +1,102 @@
+[global]
+out=text.txf
+
+[strings]
+// 0 - System controls text
+\sHero6 Panel de control\s\n\s\nVolver al juego\nSalir
+// 1 
+Hero6: Rite of Passage Demo Version 1.0\n\n(c) 1999, 2000 The Hero6 Team\n\nThe Hero6 Team es\n\nPresidente\nRink Springer - TUOIC\n\nArte\n\nArtísta Jefe\nJoseph Yarrow - Aftershock\n\nArtistas adicionales\nChris - Bonito\nAndreas Neekburn - Sir Elthil\nDaniel Teti - ^^Gabriel\nJoe McCombs - PHattiE\n\nProgramación\n\nProgramador jefe\nRink Springer - TUOIC\n\nProgramadores adicionales\nChris Cavey - ZeroX\nJaver González - TheDeath\n\nGuión\n\nGuionistas jefes\nBlueNinja\nJoost Brouwer - Paladin Valiant\nPseudonym\n\nGuionista adicional\nBen - Fernin\n\nMúsica\n\nMúsico jefe\nRobert Richards - The Adventurer\n\nMúsicos adicionales\nDerek von Krogh - Derek\n\nGracias a\nJoe McCombs - PHattiE\nMaria\nBrad Nace - Centaur of Sifnos\nKarl Semich - Te'ja
+// 2 - Magic message 
+No sabes ningún hechizo mágico\n(no te preocupes, sabemos como te sientes
+// 3 
+b 
+// 4 
+c 
+// 5 
+d 
+// 6 
+e 
+// 7 
+f 
+// 8 
+g 
+// 9 - Title: Hero message 
+¡Tachán! ¡El héroe de Hero6!
+// 10 - GL: Opening text 
+"¡Estás despierto! ¿Te sientes\nmejor?"
+// 11 - GL: Dialog options 
+Intentar levantarte\nPreguntar por su nombre\n¿Donde estoy?\n¿Cómo llegue aquí?\nDecir adiós
+// 12 - GL: Submenu: Ask her for her name 
+Preguntar más sobre Greenleaf\nHablar de ti mismo\nOtra cosa
+// 13 - GL: Subment Tell about yourself 
+Preguntar sobre las colonias\nOtra cosa
+// 14 - GL: Settlements 
+Preguntar sobre Albion\nPreguntar sobre Helmsdale\nPreguntar sobre el Duque\nOtra cosa
+// 15 - GL: After 'How did I get here?' 
+Preguntar sobre el monstruo\nOtra cosa
+// 16 - GL: After Ask about monsters 
+Preguntar sobre el valle\nOtra cosa
+// 17 - GL: After 'Ask about valley' 
+Preguntar sobre los problemas\nOtra cosa
+// 18 - GL: After 'Ask about Trouble' 
+Preguntar sobre el Duque\nPreguntar sobre los golems\nOtra cosa
+// 19 - GL: After 'Ask about Golems' 
+Preguntar sobre "alguién"\nOtra cosa
+// 20 
+20 
+// 21 
+21 
+// 22 
+22 
+// 23 
+23 
+// 24 
+24 
+// 25 
+25 
+// 26 
+26 
+// 27 
+27 
+// 28 
+28 
+// 29 
+29 
+// 30 - GL reply to getting up 
+"Deberías descansar un poco\nmás. Aún no estás totalmente\ncurado. Te dejaré levantarte\nen un momento."
+// 31 - GL's name 
+"Me llamo Greenleaf"
+// 32 - GL: Where is he? 
+"Estás en mi casa. Es un sitio\nprecioso, ¿no te parece?"
+// 33 - GL: How he got here 
+"Fuiste atacado y herido por\nese horrible monstruo. Por\nsuerte, te vi siendo atacado\ny fuí capaz de alejarlo con\nmis hechizos. Te hirió, así\nque te traje a mi casa, donde\nera más seguro."
+// 34 - GL: Goodbye 
+"Ten cuidado ahí fuera.\n¡Adiós, y buena suerte!"
+// 35 - Narrator 
+Abres los ojos para ver que\nla propietaria de la voz es\nuna preciosa mujer. Estás\ntumbado en un claro del bosque\nque está impregnado con un aura\nde paz y felicidad. Viendo que\nla mujer te ha hecho una\npregunta, giras la cabeza en\nrespuesta. Ella te sonríe.
+// 36 - GL: Ask for more about Greenleaf 
+"Eres un aventurero muy\ncurioso, ¿no? Soy una maga.\nTengo la responsabilidad de\nguardar este bosque. No ha\nsido fácil, considerando que\nahora hay dos colonias en este\nvalle, pero lo protejo lo mejor\nque puedo... ¿Quién eres tú?"
+// 37 - GL: Tell about yourself 
+"Así qué, estás respondiendo\na una proclamación del Duque\nConrad que dice que Albion\nnecesita un héroe. Debe estar\ndesesperado si necesita ayuda\ndel exterior. Las cosas están\npeor de lo que pensé...\nTe deseo buena suerte.\n¿Hay algo que te pueda decir\npara ayudarte?"
+// 38 - GL: About about settlements 
+"Bien, está Albion y Helmsdale.\nAlbion, la cual es nombrada\ndespués del valle, es la mayor\nde las dos. Es una ciudad cerca\ndel castillo del Duque.\nHelmsdale es una pequeña aldea\ncostera."
+// 39 - GL: About Albion 
+"Lo siento, pero no voy a la\nciudad muy a menudo, así que\nno puedo darte más información."
+// 40 - GL: About Helmsdale 
+"Lo siento, pero no voy\nnormalmente a la aldea, así\nque no puedo decirte nada\nmás sobre Helmsdale."
+// 41 - GL: About Duke 
+"Thorn Conrad es el noble\nlocal. Se supone que debe\nmantener la paz entre los\nhabitantes del valle.\nEl Duque Conrad es también\nel comandande de la guardia\ny es el responsable de la\ndefensa del valle"
+// 42 - GL: About monster 
+"Era un golem, uno de los\nmuchos tipos de monstruos\nque plagan este valle. Son\nmuy peligrosos, por lo que ten\nmás cuidado."
+// 43 - GL: Ask about valley 
+"Este valle se llama Albion.\nUn bonito nombre para un\npacífico, y hermoso lugar...\nAl menos pacífico hasta que\nempezaron los problemas"
+// 44 - GL: About trouble 
+"Hace unos pocos meses, la\npoblación de monstruos empezó\na incrementarse. Algunas de\nlas criaturas son simplemente\nnaturales del lugar, como\ndepredadores y eso.\nNormalmente la población de\nesas criaturas se mantendría\na niveles seguros gracias a\nlos soldados de Lord Conrad,\npero está teniendo problemas\ncon un grupo llamado los\n"Canallas" y ha dejado aparte\nlas demás amenzas"
+// 45 - GL: More about trouble 
+"Otros monstruos son innaturales\ny malvados... La criatura que\nte atacó es un ejemplo. Puedo\nsentir la mágia negra que aníma\na esos golems..."
+// 46 - GL: About Duke (again! XXX: must do linking, should be able to insert [@41] here) 
+"Thorn Conrad es el noble\nlocal. Se supone que debe\nmantener la paz entre los\nhabitantes del valle.\nEl Duque Conrad es también\nel comandande de la guardia\ny es el responsable de la\ndefensa del valle"
+// 47 - GL: About golems 
+"Los golems son criaturas\nmágicamente animadas\nnormalmente hechas de un\nsólo tipo de sustancia, cómo\nmadera o arcilla. Alguien ha\nestado creandolos en el valle\nAlbion. Los golems han\nforzado a muchos granjeros a\nhuir. Los autómatas destruyen\ngranjas y matan a quien se\nponga en su camino."
+// 48 - GL: Ask about someone 
+"He oido que un malvado\nmago al norte de aquí está\ncreando los golems, pero no\npuedo decirte si el rumor es\ncierto o no. Nunca he visto\na ese mago que del cuento."

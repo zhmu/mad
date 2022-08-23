@@ -1,0 +1,16 @@
+run {
+} run
+
+main {
+    ; load llyette's script
+    script.load "llyette.lm"
+
+    ; and run it
+    script.go
+
+    ; nuke it
+    script.dispose
+
+    ; exit
+    system.exit
+} main

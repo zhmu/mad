@@ -1,0 +1,143 @@
+;
+; b_healer.scr
+;
+; script file for the before the healer house screen
+;
+extern animation ego
+extern var old_room
+extern var cur_room
+
+use_door {
+     ; if ego not in position, return
+     if (ego.prioritycode!=2) return
+
+     ; activate clock mouse cursor and freeze controls
+     mouse.loadsprite "clock.spr"
+     bar.disable
+
+     ; open the door
+     door.setanim "opening"
+     door.animate
+     while (door.animating) refresh
+     door.face south
+
+     ; activate the normal mouse cursor and defrost controls
+     mouse.loadsprite "mouse.spr"
+     bar.enable
+
+     ; and go to the new location
+     old_room=cur_room
+     cur_room=6
+     leave
+} use_door
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture
+     loadscreen "b_healer.pic"
+
+     ; load and initialize the door
+     object door = animation "healdoor.anm"
+     door.move 192 85
+     door.sethalt "stopped"
+     door.face south
+     door.setspeed 1 1 5
+     door.enable
+     door.show
+     ; make sure ego will appear before the door
+     door.setpriority 2
+
+     ; restore the mouse cursor
+     mouse.loadsprite "mouse.spr"
+
+     if (old_room==1) goto from_castle
+     if (old_room==6) goto from_house
+     if (old_room==7) goto from_fields
+     if (old_room==8) goto from_town
+     if (old_room==26) goto from_forest_east
+
+from_castle:
+     ego.move 113 60
+     ego.face south
+     ego.stop
+     ego.show
+     return
+
+from_house:
+     ego.move 195 97
+     ego.face west
+     ego.stop
+     ego.show
+
+     ; activate clock mouse cursor and freeze controls
+     mouse.loadsprite "clock.spr"
+     bar.disable
+
+     ; close the door
+     door.setanim "closing"
+     door.animate
+     while (door.animating) refresh
+     door.face south
+
+     ; activate the normal mouse cursor and defrost controls
+     mouse.loadsprite "mouse.spr"
+     bar.enable
+     return
+
+from_town:
+     ego.show
+     ego.move 153 205
+     ego.moveto 153 152
+     while (ego.moving) refresh
+     return
+
+from_fields:
+     ego.show
+     ego.move 0 93
+     ego.moveto 20 93
+     while (ego.moving) refresh
+     return
+
+from_forest_east:
+     ego.show
+     ego.move 320 140
+     ego.moveto 205 140
+     while (ego.moving) refresh
+} init
+
+run {
+    if (ego.prioritycode==4) goto go_castle
+    if (ego.prioritycode==5) goto go_btown
+    if (ego.prioritycode==6) goto go_fields
+    if (ego.prioritycode==7) goto go_forest_east
+    return
+
+go_castle:
+    old_room=cur_room
+    cur_room=1
+    leave
+
+go_fields:
+    old_room=cur_room
+    cur_room=7
+    leave
+
+go_btown:
+    old_room=cur_room
+    cur_room=8
+    leave
+
+go_forest_east:
+    old_room=cur_room
+    cur_room=26
+    leave
+} run
+
+done {
+    door.unload
+} done

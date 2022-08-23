@@ -1,0 +1,162 @@
+/*
+ *                          The MAD Compiler 4.0
+ *
+ *                      (c) 1999, 2000 The MAD Crew
+ *
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "compile.h"
+#include "gadgets.h"
+#include "mc.h"
+#include "../../../source/include/objman.h"
+#include "../../../source/include/script.h"
+#include "../../../source/include/types.h"
+
+char     mc_outfilename[MC_MAX_SCRIPTNAME_LEN];
+_UCHAR   mc_message_level;
+
+/*
+ * usuage()
+ *
+ * This will print the usuage of the program and exit.
+ *
+ */
+void
+usuage() {
+    fprintf(stderr,"The MAD Compiler 4.0 - (c) 1999, 2000 The MAD Crew\n\n");
+    fprintf(stderr,"Usuage: MC [flags] [file.scr]\n\n");
+    fprintf(stderr,"Flags:\n");
+    fprintf(stderr,"  -? or\n");
+    fprintf(stderr,"  -h    This help\n");
+    fprintf(stderr,"  -q    Quiet mode, don't print anything (except errors)\n");
+    fprintf(stderr,"  -v    Verbose mode, print very much stuff\n");
+    fprintf(stderr,"  -b    Show build information\n\n");
+    fprintf(stderr,"Please note that all parameters are CaSe SeNsItIvE!\n");
+    exit(1);
+}
+
+/*
+ * showbuildinfo()
+ *
+ * This will show information about this build of The MAD Compiler.
+ *
+ */
+void
+showbuildinfo() {
+    fprintf(stdout,"The MAD Compiler version 4.0\n");
+    fprintf(stdout,"(c) 1999 The MAD Crew\n");
+}
+
+/*
+ * parseparams(int argc,char* argv[])
+ *
+ * This will parse the parameters supplied [argv]. It will parse [argc]
+ * parameters. It will exit on any error.
+ *
+ */
+void parseparams(int argc,char* argv[]) {
+    int i;
+
+    /* set defaults */
+    mc_message_level=MC_MESSAGELEVEL_DEFAULT;
+
+    /* scan all parameters */
+    for(i=1;i<argc;i++) {
+        /* is the first char a dash (-)? */
+        if(argv[i][0]=='-') {
+            /* Yes, figure out what the parameter means */
+            switch(argv[i][1]) {
+                case 'h':
+                case '?': /* h or ?: show help */
+                          usuage();
+                          break;
+                case 'q': /* q: set silence mode */
+                          mc_message_level=MC_MESSAGELEVEL_SILENT;
+                          break;
+                case 'v': /* v: set verbose mode */
+                          mc_message_level=MC_MESSAGELEVEL_VERBOSE;
+                          break;
+                case 'b': /* b: show build information */
+                          showbuildinfo();
+                          break;
+                 default: /* this is an invalid parameter. show that */
+                          fprintf(stderr,"invalid parameter -- %c\n",argv[i][1]);
+                          exit(0xff);
+            }
+        } else {
+            /* last parameter? */
+            if(i!=(argc-1)) {
+                /* nope. complain about the filename not being the last parameter */
+                fprintf(stderr,"script file must be the last parameter\n");
+                exit(1);
+            }
+        }
+    }
+}
+
+/*
+ * main(int argc,char* argv[])
+ *
+ * This is the main procedure.
+ *
+ */
+#ifndef WINDOWS
+int
+main(int argc,char* argv[]) {
+#else
+int
+_win_main(int argc,char* argv[]) {
+#endif
+    /* disable buffering */
+    setbuf(stdout,NULL);
+    setbuf(stderr,NULL);
+
+    /* any parameters? */
+    if(argc==1) {
+        /* nope. print usuage and leave */
+        usuage();
+    }
+    /* parse the parameters */
+    parseparams(argc,argv);
+
+    /* initialize the compiler routines */
+    cmp_init();
+
+    /* when we are not silent, show the banner */
+    if(mc_message_level!=MC_MESSAGELEVEL_SILENT) {
+        fprintf(stdout,"The MAD Compiler 4.0 - (c) 1999, 2000 The MAD Crew\n\n");
+    }
+
+    /* when we are not in silent mode, print the file name */
+    if(mc_message_level!=MC_MESSAGELEVEL_SILENT) {
+        fprintf(stdout,"Compiling script file '%s'...",argv[argc-1]);
+        /* add a newline if verbose */
+        if(mc_message_level==MC_MESSAGELEVEL_VERBOSE) {
+            printf("\n");
+        }
+    }
+    /* compile it */
+    cmp_compilefile(argv[argc-1]);
+    /* when we are not in silent mode, print done thingy */
+    if(mc_message_level!=MC_MESSAGELEVEL_SILENT) {
+        /* add a space if not verbose */
+        if(mc_message_level!=MC_MESSAGELEVEL_VERBOSE) {
+            printf(" ");
+        }
+        fprintf(stdout,"done\n");
+    }
+
+    /* construct the outpt file name */
+    gad_getbasename(argv[argc-1],mc_outfilename);
+    strcat(mc_outfilename,MC_EXT_CM);
+
+    /* write the file */
+    cmp_writefile(mc_outfilename);
+
+    /* make sure all memory is freed */
+    cmp_cleanup();
+
+    return 0;
+}

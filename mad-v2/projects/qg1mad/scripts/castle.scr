@@ -1,0 +1,168 @@
+;
+; castle.scr
+;
+; script file for the castle entry room
+;
+var count
+extern animation ego
+extern var old_room
+extern var cur_room
+extern var night
+
+look_karl {
+} look_karl
+
+use_karl {
+     ; move karl above the gate
+     karl.moveto 145 70
+     while (karl.moving) refresh
+
+     mouse.loadsprite "clock.spr"
+
+     count=0
+     controls.disable
+
+     ; make him talk
+     ego.face north
+karl_waitalk:
+     karl.setanim "talking"
+     karl.animate
+     while (karl.animating) refresh
+
+     if (count==2) count=3
+     if (count==1) count=2
+     if (count==0) count=1
+     if (count!=3) goto karl_waitalk
+
+     karl.face south
+
+     ; is gate open? if true, close it
+     if (gate.y!=100) {
+         ; close the gate
+         gate.moveto 142 100
+         goto gate_waitforit
+     }
+
+gate_close:
+     gate.moveto 142 133
+
+gate_waitforit:
+     while (gate.moving) refresh
+
+     mouse.loadsprite "mouse.spr"
+     controls.enable
+} use_karl
+
+init {
+     ego.hide
+
+     ; change mouse cursor to a clock
+     mouse.loadsprite "clock.spr"
+     refresh
+
+     ; load the background picture and restore the mouse cursor
+     loadscreen "castle.pic"
+
+     ; initialize the karl object (he is the guard)
+     object karl = animation "karl.anm"
+     karl.move 160 70
+     karl.setmove "walking"
+     karl.sethalt "stopped"
+     karl.face east
+     if (night!=1) {
+         karl.show
+         karl.enable
+     }
+     karl.setspeed 5 3 1
+     karl.setclip no
+     karl.moveto 270 70
+
+     ; load the gate
+     object gate = animation "gate.anm"
+     gate.setmove "moving"
+     gate.sethalt "stopped"
+     gate.move 142 133
+     gate.setspeed 5 2 2
+     gate.face south
+     gate.setmask top
+     gate.setclip no
+     gate.show
+
+     ; priority of the gate overshadows nobody
+     gate.setpriority 2
+
+     mouse.loadsprite "mouse.spr"
+
+     ; enable the mouse and the sprites
+     mouse.enable
+
+     ego.show
+
+     if (old_room==0) ego.move 140 150
+     if (old_room==5) goto from_healhouse
+     if (old_room!=2) return
+
+     mouse.loadsprite "clock.spr"
+
+     ; user came from the other room. position him correct and make him
+     ; move to the other side and open the gate
+     controls.disable
+     bar.disable
+     gate.move 142 100
+     ego.move 145 130
+     ego.moveto 145 150
+
+     ; position karl
+     karl.move 145 70
+     karl.stop
+
+     while (ego.moving==1) refresh
+
+     ego.face north
+
+     ; show the gate slide down
+     gate.moveto 142 133
+
+     while (gate.moving) refresh
+
+     karl.moveto 270 70
+
+     mouse.loadsprite "mouse.spr"
+     bar.enable
+     controls.enable
+     return
+
+from_healhouse:
+     ; ego came from the healer's house
+     ego.move 145 200
+     ego.moveto 145 150
+     while (ego.moving==1) refresh
+} init
+
+run {
+    ; check karl position, switch if nessecary
+    if (karl.x>=240) karl.moveto 20 70
+    if (karl.x<=30) karl.moveto 300 70
+
+    if (ego.prioritycode==32) goto go_incastle
+    if (ego.prioritycode==2) goto go_healhouse
+    return
+
+go_incastle:
+    ; only go in castle if gate is up
+    if (gate.y!=100) return
+    old_room=cur_room
+    cur_room=2
+    leave
+
+go_healhouse:
+    ; go to the healer's house
+    old_room=cur_room
+    cur_room=5
+    leave
+} run
+
+done {
+    karl.unload
+    gate.unload
+} done

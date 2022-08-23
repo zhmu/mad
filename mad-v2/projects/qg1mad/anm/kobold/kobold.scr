@@ -1,0 +1,28 @@
+;
+; kobold.scr - mad animation manager script to construct the 'kobold'
+; character
+;
+; 19990305       rink            created this file
+;
+[files]
+vanish0.spr
+vanish1.spr
+vanish2.spr
+vanish3.spr
+vanish4.spr
+vanish5.spr
+vanish6.spr
+vanish7.spr
+magic0.spr
+magic1.spr
+magic2.spr
+magic3.spr
+magic4.spr
+magic5.spr
+magic6.spr
+magic7.spr
+
+[anims]
+disappear 1 2 3 4 5 6 7 8
+appear 8 7 6 5 4 3 2 1
+magic 9 10 11 12 13 14 15 16

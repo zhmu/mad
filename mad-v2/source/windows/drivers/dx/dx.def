@@ -1,0 +1,14 @@
+LIBRARY DX.DLL
+
+EXPORTS
+	get_driver_type
+	gfx_init
+	gfx_done
+	gfx_getcaps
+	gfx_draw
+	gfx_setpalette
+	gfx_resolverror
+	gfx_poll
+	gfx_get_keyboard_status
+	gfx_get_device_status
+	gfx_setquithandler

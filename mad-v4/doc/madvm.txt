@@ -1,0 +1,310 @@
+              The MAD Virtual Machine - (c) 2000 The MAD Crew
+
+The MAD Virtual Machine (VM) is a virtual processor, with only four
+registers, those being:
+
+- an 32-bit Accumulator (A)
+- an 32-bit Instruction Pointer (IP)
+- an 16-bit Stack Pointer (SP)
+- a single 1-bit flag.
+
+The Accumulator is meant for temponary storage, since the MAD VM is a stack-
+based machine. That means, it'll do everything via a stack. If you want to do
+something, first you must push all parameters on the stack, and then call the
+function. The function will get them.
+
+OPCODES GUIDE
+
+Notes:  =>S      means          transfered to STACK, SP-=size
+        =<S      means          transfered from STACK, SP+=size
+        +>       means          transfer the next 32-bit value, IP+=4
+        ->A      means          transfer to Accumulator
+        ->F      means          transfer to Flag
+
+        &        means          logic AND
+        |        means          logic OR
+        ^        means          logic XOR
+        ~        means          logic NOT
+        +        means          add
+        -        means          subtract
+        *        means          multiply
+        /        means          divide
+
+        ==       means          equals
+        >        means          is greater than
+        <        means          is lesser than
+        >=       means          is equal or greater than
+        <=       means          is equal or lesser than
+
+-----------------------------------------------------------------------------
+
+00 -- NOP
+
+Operation: -
+
+This is a one-byte filler, that will be ignored by the VM. It is meant for
+debugging purposes.
+
+-----------------------------------------------------------------------------
+
+01 -- PUSH (immediate 32-bit value)
+
+Operation: [imm] =>S
+
+This will push the following 32-bit value on the stack
+
+-----------------------------------------------------------------------------
+
+02 -- PUSH A
+
+Operation: [A] =>S
+
+This will push the Accumulator on the stack
+
+-----------------------------------------------------------------------------
+
+03 -- TOSS
+
+Operation: =<S
+
+This will toss the value on the stack away.
+
+-----------------------------------------------------------------------------
+
+04 -- POP A
+
+Operation: [A] =<S
+
+This will pop the Accumulator from the stack
+
+-----------------------------------------------------------------------------
+
+0A -- RET
+
+Operation: IP =<S
+
+This will cause the interprinter to return from a subroutine. The VM will
+retrieve a 32-bit value from the stack and set copy it to IP.
+
+-----------------------------------------------------------------------------
+
+0B -- JMP
+
+Operation: IP +>
+
+This will set IP to the argument.
+
+-----------------------------------------------------------------------------
+
+0C -- AND
+
+Operation: (A & =<S) ->A
+
+This will AND the Accumulator with the next value from the stack. The result
+will be stored in the Accumulator.
+
+-----------------------------------------------------------------------------
+
+0D -- OR
+
+Operation: (A | =<S) ->A
+
+This will OR the Accumulator with the next value from the stack. The result
+will be stored in the Accumulator.
+
+-----------------------------------------------------------------------------
+
+0E -- XOR
+
+Operation: (A ^ =<S) ->A
+
+This will XOR the Accumulator with the next value from the stack. The result
+will be stored in the Accumulator.
+
+-----------------------------------------------------------------------------
+
+0F -- NOT
+
+Operation: (~A) ->A
+
+This will NOT the Accumulator. The result will be stored in the Accumulator.
+
+-----------------------------------------------------------------------------
+
+10 -- ADD
+
+Operation: (A + =<S) ->A
+
+This will ADD the Accumulator and the next value from the stack. The result
+will be stored in the Accumulator.
+
+-----------------------------------------------------------------------------
+
+11 -- SUB
+
+Operation: (A - =<S) ->A
+
+This will SUB the Accumulator and the next value from the stack. The result
+will be stored in the Accumulator.
+
+-----------------------------------------------------------------------------
+
+12 -- MUL
+
+Operation: (A * =<S) ->A
+
+This will multiply the Accumulator and the next value from the stack. The
+result will be stored in the Accumulator.
+
+-----------------------------------------------------------------------------
+
+13 -- DIV
+
+Operation: (A / =<S) ->A
+
+This will divide the Accumulator and the next value from the stack. The result
+will be stored in the Accumulator.
+
+Divisions by zero will cause the VM to die with an error.
+
+-----------------------------------------------------------------------------
+
+14 -- INC
+
+Operation: (A + 1) ->A
+
+This will increment the Accumulator. The result will be stored in the
+Accumulator.
+
+The Accumulator will wrap around to from 0FFFFFFFFh to 0h.
+
+-----------------------------------------------------------------------------
+
+15 -- DEC
+
+Operation: (A - 1) ->A
+
+This will decrement the Accumulator. The result will be stored in the
+Accumulator.
+
+The Accumulator will wrap around to from 0h to 0FFFFFFFFh.
+
+-----------------------------------------------------------------------------
+
+20 -- EQ?
+
+Operation: (A == =<S) ->F
+
+This will compare the Accumulator with the next value from the stack. The
+Flag will be set if it is equal, and it will be cleared if not.
+
+-----------------------------------------------------------------------------
+
+21 -- GT?
+
+Operation: (A > =<S) ->F
+
+This will check whether the Accumulator is greater than the next value from
+the stack. It will set the Flag according to the result.
+
+-----------------------------------------------------------------------------
+
+22 -- LT?
+
+Operation: (A < =<S) ->F
+
+This will check whether the Accumulator is lesser than the next value from
+the stack. It will set the Flag according to the result.
+
+-----------------------------------------------------------------------------
+
+23 -- GE?
+
+Operation: (A >= =<S) ->F
+
+This will check whether the Accumulator is greater than or equals the next
+value from the stack. It will set the Flag according to the result.
+
+-----------------------------------------------------------------------------
+
+24 -- LE?
+
+Operation: (A <= =<S) ->F
+
+This will check whether the Accumulator is lesser than or equals the next
+value from the stack. It will set the Flag according to the result.
+
+-----------------------------------------------------------------------------
+
+30 - JS <SIGNED relative offset (byte)>
+
+Operation: IP += <SIGNED relative offset>
+
+This will jump if the Flag is set. It'll do this by adding SIGNED value
+<relative offset> to IP if the Flag is set.
+
+-----------------------------------------------------------------------------
+
+31 - JC <SIGNED relative offset (byte)>
+
+Operation: IP += <SIGNED relative offset>
+
+This will jump if the Flag is clear. It'll do this by adding SIGNED value
+<relative offset> to IP if the Flag is clear.
+
+-----------------------------------------------------------------------------
+
+40 - LDA (immediate 32-bit value)
+
+Operation: (value) ->A
+
+This will transfer the immediate 32-bit value to A.
+
+-----------------------------------------------------------------------------
+
+41 - LAP (immediate 16-bit objid, immediate 16-bit propno)
+
+Operation: (value) ->A
+
+This will transfer property [propno] of object [objid] to the Accumulator.
+
+-----------------------------------------------------------------------------
+
+42 - LDP (immediate 16-bit objid, immediate 16-bit propno)
+
+Operation: (value) ->A
+
+This will transfer the Accumulator to property [propno] of object [objid].
+
+-----------------------------------------------------------------------------
+
+EXAMPLES
+
+A line line
+
+if ((ego.x>15)&&(ego.y=<50)&&(ego.prioritycode)) ego.priority++
+
+should be compiled as (assuming the object id of ego is zero):
+
+0000  41 00 00 00 00    LAP  %$0, %$0                   ; A = ego.x
+0003  01 0F 00 00 00    PUSH %15                        ; S = 15
+0007  21                GT?                             ; ego.x > 15?
+0008  31 xx             JC   noway                      ; no, visit noway
+
+0009  41 00 00 01 00    LAP  %$0, %$1                   ; A = ego.y
+000A  01 32 00 00 00    PUSH %50                        ; S = 50
+000F  24                LE?                             ; ego.y =< 50?
+0010  31 xx             JC   noway                      ; no, visit noway
+
+0011  41 00 00 02 00    LAP  %$0, %$2                   ; A = ego.prioritycode
+0016  01 00 00 00 00    PUSH %0                         ; S = 0
+001B  20                EQ?                             ; equal?
+001C  31 xx             JC   noway                      ; nope, visit noway
+
+001E  41 00 00 02 00    LAP  %$0, $%2                   ; A = ego.prioritycode
+0023  14                DEC                             ; A++
+0024  42 00 00 02 00    LDP  %$0, $%2                   ; ego.prioritycode = A
+
+noway:
+
+

@@ -1,0 +1,20 @@
+[global]
+out=text.txf
+
+[strings]
+// 0
+That would serve no purpose\n(geez, how original!)
+// 1
+How am I supposed to do that?
+// 2
+I don't see the point (.) <g>
+// 3
+Why would you want to do that?
+// 4
+That action was not yet programmed\n
+// 5
+Nope. Sorry. Try this in the final\nversion
+// 6
+@@@ GFX (c) 1989 Sierra On-Line @@@
+// 7
+You're doomed!

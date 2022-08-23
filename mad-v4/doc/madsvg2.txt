@@ -1,0 +1,52 @@
+  MAD saved game file format 2.0
+   Done at 30 May 2000 by Rink
+----------------------------------
+
+At the beginning of the file, a 16-byte header:
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            4 ³ ID code 0x21475653 (SVG!)                          ³
+³      4 ³            2 ³ Saved game version (100 = 1.0, 312 = 3.12 etc.)    ³
+³      6 ³            4 ³ Checksum                                           ³
+³     10 ³            6 ³ Reserved                                           ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Everything past this will be compressed using compress2() in ZLIB.
+
+Next will be a 1024-byte information block.
+ÚÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Offset ³ Size (bytes) ³ Description                                        ³
+ÃÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³      0 ³            8 ³ Project ID string                                  ³
+³      8 ³           64 ³ Saved game title, NULL terminated                  ³
+³     72 ³            4 ³ Number of objects stored                           ³
+³     76 ³            4 ³ Current EIP of main script                         ³
+³     80 ³            4 ³ Current EIP of secondary script                    ³
+³     84 ³            2 ³ Current SP of main script                          ³
+³     86 ³            2 ³ Current SP of secondary script                     ³
+³     88 ³            4 ³ Current Accumulator of main script                 ³
+³     92 ³            4 ³ Current Accumulator of secondary script            ³
+³     96 ³            1 ³ Current flag of main script                        ³
+³     97 ³            1 ³ Current flag of secondary script                   ³
+³     98 ³            4 ³ Stack size (both scripts)                          ³
+³    102 ³            4 ³ Data size of main script                           ³
+³    106 ³            4 ³ Data size of secondary script                      ³
+³    110 ³          914 ³ Reserved                                           ³
+ÀÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+This is followed by the objects. Objects are stored in the way the object
+manager stores them internally. All objects are written.
+
+The checksum is the value 0x52ad4e4b (R­NK) XORed by all data in the saved
+game (ULONGs!). The result is NOTed.
+
+Finally, the following will be written:
+
+1. Main script code
+2. Main script data
+3. Main script stack
+
+4. Secondary script code
+5. Secondary script data
+6. Secondary script stack

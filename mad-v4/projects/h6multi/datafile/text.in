@@ -1,0 +1,6 @@
+[global]
+out=text.txf
+
+[strings]
+// 0 - System controls text
+\sHero6 Control Panel\s\n\s\nReturn to game\nQuit
