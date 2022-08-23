@@ -83,7 +83,7 @@ gad_striptrailingspaces(char* dest) {
 
     while(dest[0]==' ') {
         /* there's a space in the beginning! nuke it */
-        strcpy(dest,(dest+1));
+        memmove(dest,dest+1,strlen(dest));
     }
 }
 

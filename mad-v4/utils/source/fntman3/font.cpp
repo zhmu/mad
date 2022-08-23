@@ -306,9 +306,6 @@ FONT::addchar(char* fname,_UCHAR charno,_UCHAR opaquecolor) {
 	}
     #endif
 
-    /* close the file */
-    fclose(f);
-
     /* it all went ok. return FONT_ERROR_OK */
     return FONT_ERROR_OK;
 }

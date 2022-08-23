@@ -296,9 +296,9 @@ cmp_readfile(char* fname) {
     }
 
     /* allocate memory for the line offset buffer */
-    if((cmp_linetab=(_ULONG*)malloc(cmp_noflines*sizeof(_ULONG)))==NULL) {
+    if((cmp_linetab=(_ULONG*)malloc((1+cmp_noflines)*sizeof(_ULONG)))==NULL) {
         /* this failed. die */
-        fprintf(stderr,"cmp_readfile(): could not allocate %lu bytes for line offset buffer of file '%s'\n",cmp_noflines*sizeof(_ULONG),fname);
+        fprintf(stderr,"cmp_readfile(): could not allocate %lu bytes for line offset buffer of file '%s'\n",(1+cmp_noflines)*sizeof(_ULONG),fname);
         exit(1);
     }
 

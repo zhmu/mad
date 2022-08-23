@@ -52,7 +52,7 @@ Showcasing the animation debugging
 
 ## Downloads
 
-The release presented here consists of the old versions of MAD, which contain a homebrew programming language and VM instead of Lua. All utilities are included, as well as demo projects. There is also a patch included which fixes the MADv4 utilities so that they work on recent systems (there were some double frees, reliance on nonstandard `strcpy()` behaviour and off-by-one's in the old codebase).
+The release presented here consists of the old versions of MAD, which contain a homebrew programming language and VM instead of Lua. All utilities are included, as well as demo projects. There is also a patch included which fixes the MADv4 utilities so that they work on recent systems (there were some double frees, reliance on nonstandard `strcpy()` behaviour and off-by-one's in the old codebase). These patches have already been applied to this Git repository.
 
   * [Final release](releases/mad-20081005.tar.bz2), 2008-10-05 (2MB)
   * [Patch needed to compile on modern systems](releases/mad-20110821.diff), 2011-08-21 (4KB)

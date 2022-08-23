@@ -145,9 +145,6 @@ ARCHIVE::addfile(char *filename,FILE *f) {
         return ARCHIVE_READERR;
     }
 
-    /* close the file */
-    fclose(f);
-
     /* allocate memory for the compression buffer */
     destlen=(fsize*2);
     if((tmp=(char*)malloc(destlen))==NULL) {
